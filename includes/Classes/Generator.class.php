@@ -1,6 +1,6 @@
 <?php
 namespace Classes;
-require_once('template.class.php');
+
 use PHPImageWorkshop\ImageWorkshop;
 use Classes\Template as Template;
 

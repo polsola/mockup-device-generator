@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-//require __DIR__ . '/autoload.php';
+require __DIR__ . '/autoload.php';
 use PHPImageWorkshop\ImageWorkshop;
 
 // Include array of compositions
@@ -9,7 +9,7 @@ use PHPImageWorkshop\ImageWorkshop;
 $compositions = get_compositions();*/
 
 // Include array of compositions
-require_once('includes/classes/template.class.php');
+//require_once('includes/classes/template.class.php');
 
 use Classes\Template as Template;
 

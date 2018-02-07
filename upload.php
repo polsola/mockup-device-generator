@@ -3,7 +3,7 @@
 namespace upload;
 
 require __DIR__ . '/vendor/autoload.php';
-require_once('includes/classes/generator.class.php');
+require __DIR__ . '/autoload.php';
 //require_once('devices.php');
 require_once('functions.php');
 
