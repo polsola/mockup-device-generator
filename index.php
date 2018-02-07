@@ -4,7 +4,7 @@
 		<?php foreach ($devices as $key => $device) { ?>
 			<li class="devices__item">
 				<a class="devices__item__link devices__item__link--<?php echo get_device_orientation( $key ); ?>" href="<?php echo $key; ?>" data-device-name="<?php echo $device['name']; ?>">
-					<img src="devices/<?php echo $key.'.png' ?>" />
+					<img src="assets/images/devices/<?php echo $key.'.png' ?>" />
 					<span class="devices__item__name"><?php echo $device['name']; ?></span>
 				</a>
 				<?php if( isset( $device['variations'] ) ){ ?>
@@ -12,7 +12,7 @@
 						<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
 							<li class="variations__item">
 								<a class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
-									<img src="devices/<?php echo $key.$key_variation.'.png'; ?>" />
+									<img src="assets/images/devices/<?php echo $key.$key_variation.'.png'; ?>" />
 									<span class="variations__item__name"><?php echo $device_variation; ?></span>
 								</a>
 							</li>

@@ -1,14 +1,14 @@
 <?php
-// Doc: http://phpimageworkshop.com/documentation.html
-use PHPImageWorkshop\ImageWorkshop;
-require_once('libs/PHPImageWorkshop/ImageWorkshop.php');
-require_once('libs/PHPImageWorkshop/Core/ImageWorkshopLayer.php');
-require_once('libs/PHPImageWorkshop/Core/ImageWorkshopLib.php');
-require_once('libs/PHPImageWorkshop/Exception/ImageWorkshopBaseException.php');
-require_once('libs/PHPImageWorkshop/Exception/ImageWorkshopException.php');
 
-require_once('devices.php');
+namespace upload;
+
+require __DIR__ . '/vendor/autoload.php';
+require_once('includes/classes/generator.class.php');
+//require_once('devices.php');
 require_once('functions.php');
+
+use PHPImageWorkshop\ImageWorkshop;
+use Classes\Generator as Generator;
 
 $uploaddir = 'screens/';
 $uploadfile = $uploaddir . basename($_FILES['file']['name']);
@@ -27,7 +27,9 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 }
 
 function save_image( $screen, $device = 'iphone6' ) {
-	$result = create_device( $screen , $device );
+
+  $generator = new Generator();
+	$result = $generator->createDevice( $screen , $device );
 
 	//save file or output to broswer
 	$SAVE_AS_FILE = TRUE;
@@ -41,9 +43,9 @@ function save_image( $screen, $device = 'iphone6' ) {
 		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
 		$result->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
-	    
+
 	    return '<img src="'.$dirPath.'/'.$filename.'" />';
-	    
+
 	}else{
 	    header('Content-Type: image/png');
 	    imagepng($result);

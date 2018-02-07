@@ -1,19 +1,19 @@
 <?php
-// Doc: http://phpimageworkshop.com/documentation.html
+
+require __DIR__ . '/vendor/autoload.php';
+//require __DIR__ . '/autoload.php';
 use PHPImageWorkshop\ImageWorkshop;
-require_once('libs/PHPImageWorkshop/ImageWorkshop.php');
-require_once('libs/PHPImageWorkshop/Core/ImageWorkshopLayer.php');
-require_once('libs/PHPImageWorkshop/Core/ImageWorkshopLib.php');
-require_once('libs/PHPImageWorkshop/Exception/ImageWorkshopBaseException.php');
-require_once('libs/PHPImageWorkshop/Exception/ImageWorkshopException.php');
 
 // Include array of compositions
-require_once('compositions.php');
-$compositions = get_compositions();
+/*require_once('compositions.php');
+$compositions = get_compositions();*/
 
 // Include array of compositions
-require_once('devices.php');
-$devices = get_devices();
+require_once('includes/classes/template.class.php');
+
+use Classes\Template as Template;
+
+$devices = Template::getDevices();
 
 require_once('functions.php');
 

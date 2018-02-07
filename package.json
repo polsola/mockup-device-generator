@@ -1,0 +1,25 @@
+{
+  "name": "php-device-image-generator",
+  "version": "1.0.0",
+  "description": "Generate device images with PHP",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polsola/php-device-image-generator.git"
+  },
+  "author": "Pol Solà",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polsola/php-device-image-generator/issues"
+  },
+  "homepage": "https://github.com/polsola/php-device-image-generator#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

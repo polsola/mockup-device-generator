@@ -1,2 +1,4 @@
 /screens/*
 /saved/*
+/node_modules/
+/vendor/
