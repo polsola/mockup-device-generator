@@ -1,0 +1,120 @@
+.app__nav {
+	grid-area: nav;
+	background-color: $nav-bg;
+	&__header {
+		grid-area: nav-header;
+		//align-self: center;
+		display: flex;
+	  align-items: center;
+		background-color: $nav-bg;
+		margin: 0;
+		font-size: 18px;
+		font-weight: 600;
+		padding: 0 30px;
+		margin: 0;
+	}
+}
+
+.devices {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	&__item {
+		position: relative;
+		z-index: 20;
+		display: block;
+
+		&__link {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			text-decoration: none;
+			font-weight: 600;
+			color:#697584;
+			border:3px solid transparent;
+			transition: background-color .25s, color .25s;
+			position: relative;
+			padding: 15px 30px;
+			&__device {
+				width: 64px;
+				height: 64px;
+				flex-shrink: 0;
+				flex-grow: 0;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				&--portrait {
+					//background-size: contain;
+				}
+				&--landscape {
+					//background-size: cover;
+				}
+			}
+			&--active {
+				color: #fff;
+				background-color: darken($nav-bg, 10%);
+			}
+
+		}
+
+		&__name {
+			margin-left: 15px;
+			flex-grow: 1;
+		}
+
+		&:hover {
+			.devices__item__link {
+				//background-color: #fff;
+				//box-shadow: 0 2px 3px rgba(#000, .3);
+				//border-radius: 5px;
+			}
+			/*.variations {
+				display: flex;
+				transform:translateY(-5%);
+				opacity: 1;
+					z-index:50;
+			}*/
+		}
+	}
+}
+
+.variations {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	transition: opacity .5s, transform .5s;
+	//box-shadow: 0 2px 3px rgba(#000, .3);
+	&__item {
+		width: 14px;
+		height: 14px;
+		background-color: #444;
+		background-image: linear-gradient(45deg, lighten(#48494d, 15%), #48494d);
+		border-radius:50%;
+		text-indent: -9999px;
+		flex-shrink: 0;
+		flex-grow: 0;
+		margin-left: 10px;
+		&--silver {
+			background-image: linear-gradient(45deg, lighten(#cdced0, 15%), #cdced0);
+		}
+		&--gold {
+			background-image: linear-gradient(45deg, lighten(#ddc19a, 15%), #ddc19a);
+		}
+		&__link {
+			display: block;
+			text-decoration: none;
+			color:#444;
+			img {
+				display: block;
+				width: 100%;
+				margin-bottom: 5px;
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.app__header {
+	grid-area: header;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	padding: 0 30px;
+	margin: 0;
+	border-bottom: 1px solid $light-gray;
+	&__title {
+		flex-grow: 1;
+	}
+	.github-button, iframe {
+		margin-left: 15px;
+	}
+}
+
+.app__brand {
+	grid-area: brand;
+	background: $primary-color url('../images/brand.svg') no-repeat center/cover;
+	text-indent: -9999px;
+	margin: 0;
+}

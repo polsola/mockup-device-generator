@@ -9,8 +9,8 @@ Dropzone.autoDiscover = false;
 $(function() {
 	$('.devices li a').click( function(e) {
 		$('#device-pick').val( $(this).attr('href') );
-		$('.device-pick li a').removeClass('selected');
-		$(this).addClass('selected');
+		$('.devices li a').removeClass('devices__item__link--active');
+		$(this).addClass('devices__item__link--active');
 		$('.device_selected').html( $(this).data('device-name') );
 		e.preventDefault();
 	});
@@ -27,5 +27,26 @@ $(function() {
 		var device = $('#device-pick').val();
 	    data.append("device", device);
 	});
+
+	$('.variations .variations__item').hover(function(e){
+		var image = $(this).data('image');
+		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
+		var backgroundUrl = 'assets/images/devices/' + image + '.png';
+		$device.css('background-image', 'url(' + backgroundUrl + ')');
+	}, function(e){
+		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
+		var backgroundUrl = 'assets/images/devices/' + $device.data('original-image') + '.png';
+		$device.css('background-image', 'url(' + backgroundUrl + ')');
+	});
+
+	$('.variations .variations__item').click(function(e){
+		var image = $(this).data('image');
+		var $deviceLink = $(this).closest('.devices__item__link');
+		var $device = $deviceLink.find('.devices__item__link__device');
+		$deviceLink.attr('href', image);
+		$device.data('original-image', image);
+	});
+
+	$('.devices .devices__item:first-child .devices__item__link').trigger('click');
 
 })
