@@ -12,10 +12,9 @@ class Generator {
 		$this->placeHolderRoute = DOCUMENT_ROOT . '/assets/images/devices/placeholder/';
 	}
 
-
 	// Function to create device
 	public function createDevice( $screen, $device, $orientation, $placeholder = false ) {
-		//echo $orientation;
+
 		$device_atts = $this->getDeviceAtts( $device );
 
 		$device_image = $device.'.png';

@@ -1,6 +1,7 @@
 .app__nav {
 	grid-area: nav;
 	background-color: $nav-bg;
+	overflow-x: auto;
 	&__header {
 		grid-area: nav-header;
 		//align-self: center;
@@ -37,7 +38,7 @@
 			width: 100%;
 			text-decoration: none;
 			font-weight: 600;
-			color:#697584;
+			color:$nav-color;
 			border:3px solid transparent;
 			transition: background-color .25s, color .25s;
 			position: relative;
@@ -74,6 +75,11 @@
 		&__name {
 			margin-left: 15px;
 			flex-grow: 1;
+			color: lighten($nav-color, 15%);
+			small {
+				display: block;
+				color:$nav-color;
+			}
 		}
 
 		&:hover {

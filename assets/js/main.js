@@ -12,6 +12,9 @@ $(function() {
 		$('.devices li a').removeClass('devices__item__link--active');
 		$(this).addClass('devices__item__link--active');
 		$('.device_selected').html( $(this).data('device-name') );
+		if($('small', $(this)).length > 0) {
+			$('.device_selected').append( '<small>' + $('small', $(this)).text() + '</small>');
+		}
 		e.preventDefault();
 	});
 	// Now that the DOM is fully loaded, create the dropzone, and setup the
@@ -19,7 +22,7 @@ $(function() {
 	var myDropzone = new Dropzone("#screen-uploader");
 
 	myDropzone.on("success", function(file, response) {
-		$('.generated').append('<div class="generated__item">' + response + '</div>');
+		$('.generated').append('<div class="generated__item"><img src="' + response + '"></div>');
 		$('.generated_count').html( $('.generated img').length );
 	});
 
@@ -32,12 +35,17 @@ $(function() {
 
 	$('.variations .variations__item').hover(function(e){
 		var image = $(this).data('image');
-		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
+		var $deviceLink = $(this).closest('.devices__item__link');
+		var $device = $deviceLink.find('.devices__item__link__device');
 		var backgroundUrl = 'assets/images/devices/placeholder/' + image + '.png';
+		$deviceLink.find('small').html($(this).text());
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	}, function(e){
-		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
+		var $deviceLink = $(this).closest('.devices__item__link');
+		var $device = $deviceLink.find('.devices__item__link__device');
+		var $deviceLinkSmall = $deviceLink.find('small');
 		var backgroundUrl = 'assets/images/devices/placeholder/' + $device.data('original-image') + '.png';
+		$deviceLinkSmall.html($deviceLinkSmall.data('original-variation'));
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	});
 
@@ -45,8 +53,10 @@ $(function() {
 		var image = $(this).data('image');
 		var $deviceLink = $(this).closest('.devices__item__link');
 		var $device = $deviceLink.find('.devices__item__link__device');
+		var $deviceLinkSmall = $deviceLink.find('small');
 		$deviceLink.attr('href', image);
 		$device.data('original-image', image);
+		$deviceLinkSmall.data('original-variation', $(this).text());
 	});
 
 	$('.devices .devices__item:first-child .devices__item__link').trigger('click');

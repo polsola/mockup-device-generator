@@ -19,13 +19,17 @@
 						<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/devices/placeholder/<?php echo $key.'.png' ?>');">
 						</span>
 					</span>
-					<span class="devices__item__name"><?php echo $device['name']; ?></span>
+					<span class="devices__item__name">
+						<?php echo $device['name']; ?>
+						<?php if( isset( $device['variations'] ) ){ ?>
+							<small data-original-variation="<?php echo $device['variations']['']; ?>"><?php echo $device['variations']['']; ?></small>
+						<?php } ?>
+					</span>
 					<?php if( isset( $device['variations'] ) ){ ?>
 						<ul class="variations">
 							<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
 								<li class="variations__item variations__item<?php echo $key_variation; ?>" data-image="<?php echo $key.$key_variation; ?>">
 									<span class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
-										<!--<img src="assets/images/devices/<?php echo $key.$key_variation.'.png'; ?>" />-->
 										<span class="variations__item__name"><?php echo $device_variation; ?></span>
 									</span>
 								</li>

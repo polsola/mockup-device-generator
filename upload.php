@@ -32,7 +32,7 @@ function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 	$result = $generator->createDevice( $screen , $device, $orientation );
 
 	//save file or output to broswer
-	$SAVE_AS_FILE = TRUE;
+	$SAVE_AS_FILE = false;
 	if( $SAVE_AS_FILE ){
 	    //$save_path = "saved/".$screen;
 	    //Saving the result
@@ -47,12 +47,21 @@ function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 	    return '<img src="'.$dirPath.'/'.$filename.'" />';
 
 	}else{
-	    header('Content-Type: image/png');
-	    imagepng($result);
+
+    $image = $result->getResult();
+
+    ob_start();
+    header('Content-Type: image/png');
+    imagepng($image);
+    $imageCode = ob_get_clean();
+
+    return "data:image/png;base64," . base64_encode($imageCode) . '"';
+      //header('Content-type: image/png');
 	}
 
 	//release memory
 	imagedestroy($result);
+  unlink($uploadfile);
 }
 
 ?>

@@ -12,6 +12,10 @@
 	border-bottom: 1px solid $light-gray;
 	&__title {
 		flex-grow: 1;
+		small {
+			color: lighten($body-color, 10%);
+			margin-left: 10px;
+		}
 	}
 	.github-button, iframe {
 		margin-left: 15px;
