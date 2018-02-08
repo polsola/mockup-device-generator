@@ -15,7 +15,7 @@ $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
     //echo "File is valid, and was successfully uploaded.\n";
-    echo save_image( basename($_FILES['file']['name']), $_POST['device'] );
+    echo save_image( basename($_FILES['file']['name']), $_POST['device'], $_POST['orientation'] );
     //echo 'saved/'.basename($_FILES['file']['name']);
 } else {
 	echo '<pre>';
@@ -26,10 +26,10 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 	print "</pre>";
 }
 
-function save_image( $screen, $device = 'iphone6' ) {
+function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 
   $generator = new Generator();
-	$result = $generator->createDevice( $screen , $device );
+	$result = $generator->createDevice( $screen , $device, $orientation );
 
 	//save file or output to broswer
 	$SAVE_AS_FILE = TRUE;

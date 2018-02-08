@@ -1,46 +1,6 @@
 <?php
 use PHPImageWorkshop\ImageWorkshop;
 
-// Function to create device
-function create_device( $screen, $device ) {
-
-	$devices = get_devices();
-
-	$device_array = explode('--', $device);
-
-	$device_atts = $devices[ $device_array[0] ];
-
-	$device_image = $device.'.png';
-
-	$device = ImageWorkshop::initFromPath('assets/images/devices/'.$device_image);
-	$screen = create_screen($screen, $device_atts);
-	$device->addLayer(1, $screen, $device_atts['screen']['x'], $device_atts['screen']['y'], 'LT');
-
-	return $device;
-}
-
-function create_screen( $screen, $device_atts ) {
-
-	$expectedWidth = $device_atts['screen']['width'];
-	$expectedHeight = $device_atts['screen']['height'];
-
-	// Determine the largest expected side automatically
-	($expectedWidth < $expectedHeight) ? $largestSide = $expectedWidth : $largestSide = $expectedHeight;
-
-	$screen = ImageWorkshop::initFromPath('screens/'.$screen);
-
-	// Get a squared layer
-	//$screen->cropMaximumInPixel(0, 0, "MM");
-
-	// Resize the squared layer with the largest side of the expected thumb
-	$screen->resizeInPixel($expectedWidth, $expectedHeight, true);
-
-	// Crop the layer to get the expected dimensions
-	//$screen->cropInPixel($expectedWidth, $expectedHeight, 0, 0, 'MM');
-
-	return $screen;
-}
-
 function get_device_orientation( $device ) {
 	$device_image = $device.'.png';
 

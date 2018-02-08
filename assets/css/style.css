@@ -41,7 +41,7 @@ h1, h2, h3 {
 
 .app {
   display: grid;
-  grid-template-columns: 80px 360px auto;
+  grid-template-columns: 80px 400px auto;
   grid-template-rows: 80px auto;
   grid-template-areas: "brand nav-header header" "aside nav main"; }
 
@@ -91,11 +91,14 @@ html, body, .app {
     -ms-flex-align: center;
     align-items: center;
     background-color: #242730;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 0 30px;
-    margin: 0; }
+    padding: 0 30px; }
+    .app__nav__header h2 {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0; }
 
 .devices {
   list-style: none;
@@ -134,17 +137,29 @@ html, body, .app {
       transition: background-color .25s, color .25s;
       position: relative;
       padding: 15px 30px; }
-      .devices__item__link__device {
-        width: 64px;
-        height: 64px;
+      .devices__item__link__placeholder {
+        background-color: #F2F6F9;
+        border-radius: 10px;
+        padding: 8px;
         -ms-flex-negative: 0;
         flex-shrink: 0;
         -webkit-box-flex: 0;
         -ms-flex-positive: 0;
-        flex-grow: 0;
+        flex-grow: 0; }
+      .devices__item__link__device {
+        width: 56px;
+        height: 56px;
+        display: block;
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center; }
+        background-position: center;
+        -webkit-transition: -webkit-transform .25s;
+        transition: -webkit-transform .25s;
+        transition: transform .25s;
+        transition: transform .25s, -webkit-transform .25s; }
+        .devices__item__link__device--landscape {
+          -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg); }
       .devices__item__link--active {
         color: #fff;
         background-color: #0e0f13; }
@@ -198,6 +213,27 @@ html, body, .app {
         display: block;
         width: 100%;
         margin-bottom: 5px; }
+
+.orientation {
+  border-radius: 5px;
+  border: 1px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden; }
+  .orientation__item {
+    background: url("../images/orientation-picker.svg") no-repeat 0 center;
+    text-indent: -9999px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    -webkit-transition: background-color .25s;
+    transition: background-color .25s;
+    cursor: pointer; }
+    .orientation__item--landscape {
+      background-position: right center; }
+    .orientation__item--active {
+      background-color: #00ABFF; }
 
 .app__main {
   grid-area: main;

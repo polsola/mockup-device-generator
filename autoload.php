@@ -6,3 +6,5 @@ function dig_autoloader($class) {
 }
 
 spl_autoload_register('dig_autoloader');
+
+define( 'DOCUMENT_ROOT', realpath( $_SERVER["DOCUMENT_ROOT"] ) );

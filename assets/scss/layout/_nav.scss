@@ -7,11 +7,14 @@
 		display: flex;
 	  align-items: center;
 		background-color: $nav-bg;
-		margin: 0;
-		font-size: 18px;
-		font-weight: 600;
 		padding: 0 30px;
-		margin: 0;
+
+		h2 {
+			flex-grow: 1;
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0;
+		}
 	}
 }
 
@@ -39,19 +42,26 @@
 			transition: background-color .25s, color .25s;
 			position: relative;
 			padding: 15px 30px;
-			&__device {
-				width: 64px;
-				height: 64px;
+			&__placeholder {
+				background-color: $bg-color;
+				border-radius: 10px;
+				padding: 8px;
 				flex-shrink: 0;
 				flex-grow: 0;
+			}
+			&__device {
+				width: 56px;
+				height: 56px;
+				display: block;
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
+				transition: transform .25s;
 				&--portrait {
 					//background-size: contain;
 				}
 				&--landscape {
-					//background-size: cover;
+					transform: rotate(-90deg);
 				}
 			}
 			&--active {
@@ -115,6 +125,28 @@
 				width: 100%;
 				margin-bottom: 5px;
 			}
+		}
+	}
+}
+
+.orientation {
+	border-radius: 5px;
+	border: 1px solid #fff;
+	display: flex;
+	overflow: hidden;
+	&__item {
+		background: url('../images/orientation-picker.svg') no-repeat 0 center;
+		text-indent: -9999px;
+		display: block;
+		width: 32px;
+		height: 32px;
+		transition: background-color .25s;
+		cursor: pointer;
+		&--landscape {
+			background-position: right center;
+		}
+		&--active {
+			background-color: $primary-color;
 		}
 	}
 }

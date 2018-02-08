@@ -25,17 +25,19 @@ $(function() {
 
 	myDropzone.on("sending", function(file, xhr, data) {
 		var device = $('#device-pick').val();
-	    data.append("device", device);
+		var orientation = $('input[name="orientation"]:checked').val();
+    data.append("device", device);
+		data.append("orientation", orientation);
 	});
 
 	$('.variations .variations__item').hover(function(e){
 		var image = $(this).data('image');
 		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
-		var backgroundUrl = 'assets/images/devices/' + image + '.png';
+		var backgroundUrl = 'assets/images/devices/placeholder/' + image + '.png';
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	}, function(e){
 		var $device = $(this).closest('.devices__item__link').find('.devices__item__link__device');
-		var backgroundUrl = 'assets/images/devices/' + $device.data('original-image') + '.png';
+		var backgroundUrl = 'assets/images/devices/placeholder/' + $device.data('original-image') + '.png';
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	});
 
@@ -48,5 +50,16 @@ $(function() {
 	});
 
 	$('.devices .devices__item:first-child .devices__item__link').trigger('click');
+
+	$('.orientation__item').click(function(e){
+		$('.orientation__item').removeClass('orientation__item--active');
+		$(this).addClass('orientation__item--active');
+		if( $(this).find('input').val() == 'landscape' ) {
+			$('.devices__item__link__device--rotate').addClass('devices__item__link__device--landscape' );
+		} else {
+			$('.devices__item__link__device--rotate').removeClass('devices__item__link__device--landscape' );
+		}
+
+	});
 
 })

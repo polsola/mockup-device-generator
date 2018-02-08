@@ -1,11 +1,23 @@
 <?php include('header.php'); ?>
-	<h2 class="app__nav__header">Pick a device</h2>
+	<div class="app__nav__header">
+		<h2>Pick a device</h2>
+		<div class="orientation">
+			<label for="orientation-portrait" class="orientation__item orientation__item--portrait orientation__item--active">Portrait
+				<input id="orientation-portrait" type="radio" name="orientation" value="portrait" checked>
+			</label>
+			<label for="orientation-landscape" class="orientation__item orientation__item--landscape">Landscape
+				<input id="orientation-landscape" type="radio" name="orientation" value="landscape">
+			</label>
+		</div>
+	</div>
 	<aside class="app__nav">
 		<ul class="devices">
 		<?php foreach ($devices as $key => $device) { ?>
 			<li class="devices__item">
 				<a class="devices__item__link" href="<?php echo $key; ?>" data-device-name="<?php echo $device['name']; ?>">
-					<span class="devices__item__link__device devices__item__link__device--<?php echo get_device_orientation( $key ); ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/devices/<?php echo $key.'.png' ?>');">
+					<span class="devices__item__link__placeholder">
+						<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/devices/placeholder/<?php echo $key.'.png' ?>');">
+						</span>
 					</span>
 					<span class="devices__item__name"><?php echo $device['name']; ?></span>
 					<?php if( isset( $device['variations'] ) ){ ?>
