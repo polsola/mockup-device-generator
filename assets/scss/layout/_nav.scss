@@ -17,6 +17,19 @@
 			margin: 0;
 		}
 	}
+	&__section {
+		&__title {
+			position: sticky;
+			top: 0;
+			z-index: 100;
+			padding: 10px 30px;
+			margin: 0;
+			background-color: rgba(lighten($nav-bg, 10%), .9);
+			color: lighten($nav-color, 15%);
+			backdrop-filter: blur(2px);
+			font-weight: 600;
+		}
+	}
 }
 
 .devices {
@@ -30,7 +43,6 @@
 		position: relative;
 		z-index: 20;
 		display: block;
-
 		&__link {
 			display: flex;
 			align-items: center;
@@ -121,6 +133,12 @@
 		}
 		&--gold {
 			background-image: linear-gradient(45deg, lighten(#ddc19a, 15%), #ddc19a);
+		}
+		&--white {
+			background-image: linear-gradient(45deg, #fff, darken(#fff, 10%));
+		}
+		&--blue {
+			background-image: linear-gradient(45deg, lighten($primary-color, 15%), $primary-color);
 		}
 		&__link {
 			display: block;

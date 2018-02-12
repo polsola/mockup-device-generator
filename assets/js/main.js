@@ -1,26 +1,10 @@
-// This example uses jQuery so it creates the Dropzone, only when the DOM has
-// loaded.
 
 // Disabling autoDiscover, otherwise Dropzone will try to attach twice.
 Dropzone.autoDiscover = false;
-// or disable for specific dropzone:
-// Dropzone.options.myDropzone = false;
 
 $(function() {
-	$('.devices li a').click( function(e) {
-		$('#device-pick').val( $(this).attr('href') );
-		$('.devices li a').removeClass('devices__item__link--active');
-		$(this).addClass('devices__item__link--active');
-		$('.device_selected').html( $(this).data('device-name') );
-		if($('small', $(this)).length > 0) {
-			$('.device_selected').append( '<small>' + $('small', $(this)).text() + '</small>');
-		}
-		$('.screen-width').html( $(this).data('screen-width')  );
-		$('.screen-height').html( $(this).data('screen-height')  );
-		e.preventDefault();
-	});
-	// Now that the DOM is fully loaded, create the dropzone, and setup the
-	// event listeners
+
+	// Create the dropzone and setup
 	var myDropzone = new Dropzone("#screen-uploader");
 
 	myDropzone.on("success", function(file, response) {
@@ -35,6 +19,21 @@ $(function() {
 		data.append("orientation", orientation);
 	});
 
+	// Device list click function
+	$('.devices li a').click( function(e) {
+		$('#device-pick').val( $(this).attr('href') );
+		$('.devices li a').removeClass('devices__item__link--active');
+		$(this).addClass('devices__item__link--active');
+		$('.device_selected').html( $(this).data('device-name') );
+		if($('small', $(this)).length > 0) {
+			$('.device_selected').append( '<small>' + $('small', $(this)).text() + '</small>');
+		}
+		$('.screen-width').html( $(this).data('screen-width')  );
+		$('.screen-height').html( $(this).data('screen-height')  );
+		e.preventDefault();
+	});
+
+	// Preview image on hover variation
 	$('.variations .variations__item').hover(function(e){
 		var image = $(this).data('image');
 		var $deviceLink = $(this).closest('.devices__item__link');
@@ -51,6 +50,7 @@ $(function() {
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	});
 
+	// Mantain variation on click
 	$('.variations .variations__item').click(function(e){
 		var image = $(this).data('image');
 		var $deviceLink = $(this).closest('.devices__item__link');
@@ -61,8 +61,10 @@ $(function() {
 		$deviceLinkSmall.data('original-variation', $(this).text());
 	});
 
-	$('.devices .devices__item:first-child .devices__item__link').trigger('click');
+	// Trigger click on first item on load
+	$('.app__nav__section:first-child .devices .devices__item:first-child .devices__item__link').trigger('click');
 
+	// Orientation switcher: Change it for devaices that can rotate
 	$('.orientation__item').click(function(e){
 		$('.orientation__item').removeClass('orientation__item--active');
 		$(this).addClass('orientation__item--active');
@@ -71,7 +73,6 @@ $(function() {
 		} else {
 			$('.devices__item__link__device--rotate').removeClass('devices__item__link__device--landscape' );
 		}
-
 	});
 
 })

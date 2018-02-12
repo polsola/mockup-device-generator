@@ -14,7 +14,7 @@ $compositions = get_compositions();*/
 
 use Classes\Template as Template;
 
-$devices = Template::getDevices();
+$deviceCategories = Template::getDevices(true);
 
 require_once('functions.php');
 
