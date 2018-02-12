@@ -15,6 +15,8 @@ $(function() {
 		if($('small', $(this)).length > 0) {
 			$('.device_selected').append( '<small>' + $('small', $(this)).text() + '</small>');
 		}
+		$('.screen-width').html( $(this).data('screen-width')  );
+		$('.screen-height').html( $(this).data('screen-height')  );
 		e.preventDefault();
 	});
 	// Now that the DOM is fully loaded, create the dropzone, and setup the

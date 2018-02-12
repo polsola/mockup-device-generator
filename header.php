@@ -60,8 +60,9 @@ foreach($files as $file){ // iterate files
 		<aside class="app__aside"></aside>
 		<header class="app__header">
 			<span class="app__header__title device_selected">Device image generator</span>
-				<!-- Place this tag where you want the button to render. -->
-				<a class="github-button" href="https://github.com/polsola" data-size="large" aria-label="Follow @polsola on GitHub">Follow @polsola</a>
-				<!-- Place this tag where you want the button to render. -->
-				<a class="github-button" href="https://github.com/polsola/php-device-image-generator" data-icon="octicon-star" data-size="large" aria-label="Star polsola/php-device-image-generator on GitHub">Star</a>
+			<div class="app__header__size">Recommended size: <strong class="screen-width"></strong>x<strong class="screen-height"></strong> px</div>
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/polsola" data-size="large" aria-label="Follow @polsola on GitHub">Follow @polsola</a>
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/polsola/php-device-image-generator" data-icon="octicon-star" data-size="large" aria-label="Star polsola/php-device-image-generator on GitHub">Star</a>
 		</header>

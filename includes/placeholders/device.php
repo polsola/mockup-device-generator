@@ -9,6 +9,7 @@ use Classes\Generator as Generator;
 $devices = Template::getDevices();
 $generator = new Generator();
 ini_set('memory_limit','256M');
+ini_set('max_execution_time', 300);
 
 foreach ($devices as $key => $device) {
 
@@ -19,5 +20,5 @@ foreach ($devices as $key => $device) {
 	} else {
 		$generator->createPlaceholder($key);
 	}
-	echo 'wii';
+	echo 'Generated';
 }

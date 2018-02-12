@@ -6,7 +6,9 @@ use PHPImageWorkshop\ImageWorkshop;
 class Template {
 	public static function getDevices() {
 		$ios_product_variations = array('' => 'Space Gray', '--silver' => 'Silver', '--gold' => 'Gold');
-		$ios_product_variations_name = array('', ' Silver', ' Gold');
+
+		$samsung_proudct_variations = array('' => 'Black', '--silver' => 'Silver', '--gold' => 'Gold');
+		//$ios_product_variations_name = array('', ' Silver', ' Gold');
 
 		$devices = array();
 
@@ -36,10 +38,10 @@ class Template {
 
 		$devices['ipad-air-2'] = array(
 							'name' => 'iPad Air 2',
-							'screen' => array('x' => 218, 'y' => 224, 'width' => 1550, 'height' => 2050 ),
+							'screen' => array('x' => 80, 'y' => 140, 'width' => 768, 'height' => 1024 ),
 							'variations' => $ios_product_variations,
 							'landscape'		=> true
-							);
+						);
 
 		$devices['ipadpro'] = array(
 							'name' => 'iPad Pro',
@@ -56,18 +58,21 @@ class Template {
 							'variations' => $ios_product_variations
 							);
 
-		$devices['samsung-galaxy-s6'] = array(
-			'name' => 'Samsung Galaxy S6',
-			'image' => 'samsung-galaxy-s6.png',
-			'screen' => array('x' => 80, 'y' => 165, 'width' => 763, 'height' => 1355 ),
-			'landscape'		=> true
-			);
+		$devices['samsung-galaxy-s8'] = array(
+							'name' 				=> 'Samsung Galaxy S8',
+							'image' 			=> 'samsung-galaxy-s8.png',
+							'screen' 			=> array('x' => 50, 'y' => 160, 'width' => 720, 'height' => 1480 ),
+							'variations'	=> $samsung_proudct_variations,
+							'back' 				=> true,
+							'landscape'		=> true
+						);
 
-		$devices['nexus9-lunarwhite'] = array(
-			'name' => 'Nexus 9 LunarWhite',
-			'image' => 'nexus9-lunarwhite.png',
-			'screen' => array('x' => 340, 'y' => 85, 'width' => 2068, 'height' => 1522 )
-			);
+		$devices['nexus9'] = array(
+							'name' 				=> 'Nexus 9',
+							'image' 			=> 'nexus9.png',
+							'screen' 			=> array('x' => 90, 'y' => 150, 'width' => 768, 'height' => 1024 ),
+							'landscape'		=> true
+						);
 
 		return $devices;
 	}

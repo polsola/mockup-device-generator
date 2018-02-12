@@ -5,15 +5,15 @@
 	align-items: center;
 	justify-content: space-between;
 	margin: 0;
-	font-size: 18px;
-	font-weight: 600;
 	padding: 0 30px;
 	margin: 0;
 	border-bottom: 1px solid $light-gray;
+	color: lighten($body-color, 10%);
 	&__title {
 		flex-grow: 1;
+		font-size: 18px;
+		font-weight: 600;
 		small {
-			color: lighten($body-color, 10%);
 			margin-left: 10px;
 		}
 	}

@@ -25,7 +25,7 @@ class Generator {
 
 		$device = ImageWorkshop::initFromPath( $this->originalRoute . $device_image);
 		if(!$placeholder) {
-			$screen = $this->createScreen($screen, $device_atts);
+			$screen = $this->createScreen($screen, $device_atts, $orientation);
 		}
 
 		if( isset( $device_atts['back'] ) ) {
@@ -43,24 +43,25 @@ class Generator {
 		return $comp;
 	}
 
-	private function createScreen( $screen, $device_atts ) {
+	private function createScreen( $screen, $device_atts, $orientation ) {
 
 		$expectedWidth = $device_atts['screen']['width'];
 		$expectedHeight = $device_atts['screen']['height'];
 
 		// Determine the largest expected side automatically
-		($expectedWidth < $expectedHeight) ? $largestSide = $expectedWidth : $largestSide = $expectedHeight;
+		//($expectedWidth < $expectedHeight) ? $largestSide = $expectedWidth : $largestSide = $expectedHeight;
 
 		$screen = ImageWorkshop::initFromPath('screens/'.$screen);
 
-		// Get a squared layer
-		//$screen->cropMaximumInPixel(0, 0, "MM");
+		$originalWidth  = $screen->getWidth();
+		$originalHeight = $screen->getHeight();
+
+		if( $originalWidth > $originalHeight && isset($device_atts['landscape']) && $orientation == 'landscape' ) {
+			$screen->rotate(90);
+		}
 
 		// Resize the squared layer with the largest side of the expected thumb
 		$screen->resizeInPixel($expectedWidth, $expectedHeight, true);
-
-		// Crop the layer to get the expected dimensions
-		//$screen->cropInPixel($expectedWidth, $expectedHeight, 0, 0, 'MM');
 
 		return $screen;
 	}
@@ -77,9 +78,7 @@ class Generator {
 
 		$screen->resizeInPixel( $device_atts['screen']['width'], $device_atts['screen']['height'], false);
 
-		$placeholder = $this->createDevice($screen, $device, true);
-
-
+		$placeholder = $this->createDevice($screen, $device, 'portrait', true);
 
 		$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
 		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
