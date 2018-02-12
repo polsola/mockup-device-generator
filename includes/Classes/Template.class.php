@@ -22,13 +22,13 @@ class Template {
 							'landscape'		=> true
 						);
 
-		$phones['iphone6'] = array(
-							'name' => 'iPhone 6',
-							'image' => 'iphone6.png',
-							'screen' => array('x' => 56, 'y' => 215, 'width' => 751, 'height' => 1334 ),
-							'variations' => $ios_product_variations,
+		$phones['iphone8'] = array(
+							'name' 				=> 'iPhone 8',
+							'image' 			=> 'iphone8.png',
+							'screen' 			=> array('x' => 50, 'y' => 140, 'width' => 375, 'height' => 667 ),
+							'variations' 	=> $ios_product_variations,
 							'landscape'		=> true
-							);
+						);
 
 		$tablets['ipad-air-2'] = array(
 							'name' => 'iPad Air 2',
@@ -46,11 +46,17 @@ class Template {
 							);
 
 		$computers['macbook'] = array(
-							'name' => 'MacBook',
-							'image' => 'macbook.png',
-							'screen' => array('x' => 270, 'y' => 80, 'width' => 1440, 'height' => 900 ),
-							'variations' => $ios_product_variations
-							);
+							'name' 				=> 'MacBook',
+							'image' 			=> 'macbook.png',
+							'screen' 			=> array('x' => 190, 'y' => 64, 'width' => 1152, 'height' => 721 ),
+							'variations' 	=> array('' => 'Space Gray', '--gold' => 'Gold')
+						);
+
+		$computers['imac'] = array(
+							'name' 				=> 'iMac',
+							'image' 			=> 'imac.png',
+							'screen' 			=> array('x' => 57, 'y' => 77, 'width' => 1280, 'height' => 721 ),
+						);
 
 		$phones['samsung-galaxy-s8'] = array(
 							'name' 				=> 'Samsung Galaxy S8',
