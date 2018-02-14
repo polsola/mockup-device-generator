@@ -79,7 +79,7 @@ html, body, .app {
 
 .app__brand {
   grid-area: brand;
-  background: #00ABFF url("../images/brand.svg") no-repeat center/cover;
+  background: #00ABFF url("../images/brand.png") no-repeat center/cover;
   text-indent: -9999px;
   margin: 0; }
 

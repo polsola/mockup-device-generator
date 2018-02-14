@@ -11,7 +11,7 @@ class Template {
 		$google_product_variations = array('' => 'Just Black', '--white' => 'Clearly White', '--blue' => 'Kinda Blue');
 		//$ios_product_variations_name = array('', ' Silver', ' Gold');
 
-		$devices = $phones = $tablets = $computers = array();
+		$devices = $phones = $tablets = $computers = $watches = array();
 
 		$phones['iphonex'] = array(
 							'name' 				=> 'iPhone X',
@@ -83,6 +83,12 @@ class Template {
 							'landscape'		=> true
 						);
 
+		$watches['apple-watch-42'] = array(
+							'name' 				=> 'Apple Watch 2 42mm',
+							'image' 			=> 'apple-watch-42.png',
+							'screen' 			=> array('x' => 100, 'y' => 280, 'width' => 312, 'height' => 390 )
+						);
+
 		if( $withCategories ) {
 			$devices = array(
 				'phones' => array(
@@ -96,10 +102,14 @@ class Template {
 				'computers' => array(
 					'label' => 'Computers',
 					'devices' => $computers
+				),
+				'watches' => array(
+					'label' => 'Watches',
+					'devices' => $watches
 				)
 			);
 		} else {
-			$devices = $phones + $tablets + $computers;
+			$devices = $phones + $tablets + $computers + $watches;
 		}
 
 

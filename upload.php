@@ -4,8 +4,6 @@ namespace upload;
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/autoload.php';
-//require_once('devices.php');
-require_once('functions.php');
 
 use PHPImageWorkshop\ImageWorkshop;
 use Classes\Generator as Generator;
@@ -13,17 +11,16 @@ use Classes\Generator as Generator;
 $uploaddir = 'screens/';
 $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
-if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-    //echo "File is valid, and was successfully uploaded.\n";
-    echo save_image( basename($_FILES['file']['name']), $_POST['device'], $_POST['orientation'] );
-    //echo 'saved/'.basename($_FILES['file']['name']);
+if( move_uploaded_file( $_FILES['file']['tmp_name'], $uploadfile ) ) {
+  // File is valid, and was successfully uploaded
+  echo save_image( basename( $_FILES['file']['name'] ), $_POST['device'], $_POST['orientation'] );
 } else {
+  // Some error happened, check permissions
 	echo '<pre>';
-    echo "Possible file upload attack!\n";
-    echo 'Here is some more debugging info:';
+  echo "Possible file upload attack!\n";
+  echo 'Here is some more debugging info:';
 	print_r($_FILES);
-
-	print "</pre>";
+	echo "</pre>";
 }
 
 function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
@@ -32,10 +29,9 @@ function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 	$result = $generator->createDevice( $screen , $device, $orientation );
 
 	//save file or output to broswer
-	$SAVE_AS_FILE = false;
-	if( $SAVE_AS_FILE ){
-	    //$save_path = "saved/".$screen;
-	    //Saving the result
+	$save_as_file = false;
+	if( $save_as_file ) {
+
 		$dirPath = "saved";
 		$filename = $screen;
 		$createFolders = true; //will create the folder if not exist
@@ -44,9 +40,9 @@ function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 
 		$result->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 
-	    return '<img src="'.$dirPath.'/'.$filename.'" />';
+	  return '<img src="'.$dirPath.'/'.$filename.'" />';
 
-	}else{
+	} else {
 
     $image = $result->getResult();
 
@@ -56,10 +52,10 @@ function save_image( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
     $imageCode = ob_get_clean();
 
     return "data:image/png;base64," . base64_encode($imageCode) . '"';
-      //header('Content-type: image/png');
+
 	}
 
-	//release memory
+	/* TODO: Release memory */
 	imagedestroy($result);
   unlink($uploadfile);
 }

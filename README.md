@@ -1,4 +1,4 @@
-## PHP Device Image Generator
+## Mockup Device Generator
 Put your screen designs inside most common devices.
 
 This is a very personal project I developed. I'll mostly work as a UI Designer, everytime I finished a design we needed to put the screens on a device (Mostly inside an iPhone) so finally to stop doing the same everytime I came to this
