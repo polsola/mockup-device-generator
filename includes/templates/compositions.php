@@ -10,12 +10,12 @@ function get_compositions() {
 							),
 							'layers' => array(
 								0 => array(
-									'device' 	=> 'iphone6',
+									'device' 	=> 'iphone8',
 									'from'		=> 'LT',
 									'pos'		=> array('x' => 0, 'y' => 0)
 								),
 								1 => array(
-									'device' 	=> 'iphone6',
+									'device' 	=> 'iphone8',
 									'from'		=> 'LT',
 									'pos'		=> array('x' => 400, 'y' => 0)
 								)
@@ -28,19 +28,19 @@ function get_compositions() {
 							),
 							'layers' => array(
 								0 => array(
-									'device' 	=> 'iphone6',
+									'device' 	=> 'iphone8',
 									'resize' 	=> 90,
 									'from'		=> 'LT',
 									'pos'		=> array('x' => 0, 'y' => 100)
 								),
 								1 => array(
-									'device' 	=> 'iphone6--silver',
+									'device' 	=> 'iphone8--silver',
 									'resize' 	=> 90,
 									'from'		=> 'RT',
 									'pos'		=> array('x' => 0, 'y' => 100)
 								),
 								2 => array(
-									'device' 	=> 'iphone6--gold',
+									'device' 	=> 'iphone8--gold',
 									'from'		=> 'LT',
 									'pos'		=> array('x' => 400, 'y' => 0)
 								)
@@ -58,7 +58,7 @@ function get_compositions() {
 									'pos'		=> array('x' => 0, 'y' => 0)
 								),
 								1 => array(
-									'device' 	=> 'iphone6--gold',
+									'device' 	=> 'iphone8--gold',
 									'from'		=> 'LB',
 									'resize'	=> 40,
 									'pos'		=> array('x' => 400, 'y' => -103)
