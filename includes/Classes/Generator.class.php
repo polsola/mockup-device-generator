@@ -48,20 +48,23 @@ class Generator {
 		$expectedWidth = $device_atts['screen']['width'];
 		$expectedHeight = $device_atts['screen']['height'];
 
-		// Determine the largest expected side automatically
-		//($expectedWidth < $expectedHeight) ? $largestSide = $expectedWidth : $largestSide = $expectedHeight;
-
 		$screen = ImageWorkshop::initFromPath('screens/'.$screen);
 
 		$originalWidth  = $screen->getWidth();
 		$originalHeight = $screen->getHeight();
 
+		// Rotate if we need to & device is landscape
 		if( $originalWidth > $originalHeight && isset($device_atts['landscape']) && $orientation == 'landscape' ) {
 			$screen->rotate(90);
 		}
 
 		// Resize the squared layer with the largest side of the expected thumb
-		$screen->resizeInPixel($expectedWidth, $expectedHeight, true);
+		$screen->resizeInPixel($expectedWidth, null, true);
+		$screen->cropInPixel($expectedWidth, $expectedHeight, 0, 0, "LT");
+		/*
+		if($screen->getHeight() != $expectedHeight) {
+
+		}*/
 
 		return $screen;
 	}

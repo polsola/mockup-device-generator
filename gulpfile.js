@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 gulp.task('serve', ['styles'], function() {
 
     browserSync.init({
-        proxy: "php-device-image-generator.dev"
+        proxy: "mockup-device-generator.dev"
     });
 
     gulp.watch("./assets/scss/**/*.scss", ['styles']);

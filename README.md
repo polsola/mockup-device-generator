@@ -1,9 +1,13 @@
 ## Mockup Device Generator
 Put your screen designs inside most common devices.
 
-This is a very personal project I developed. I'll mostly work as a UI Designer, everytime I finished a design we needed to put the screens on a device (Mostly inside an iPhone) so finally to stop doing the same everytime I came to this
+As I work mostly as a UI Designer, this project came to my mind everytime I finished a design. At that point I would normally open Photoshop to put the screens on a device to show the final result to my client. I always thought there must be a fastest way so I came to this
 
-This project uses:
+### Credits
 
 <a href="https://github.com/enyo/dropzone/">Dropzone by enyo</a> to handle uploads
 <a href="http://phpimageworkshop.com">PHPImageWorkshop</a> for crop & resize images
+
+### Troubleshooting
+
+Be sure your server has property values for PHP `max_upload_size` and `max_post_size` if you have problems when uploading large files

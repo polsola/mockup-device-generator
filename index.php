@@ -22,6 +22,7 @@ function get_screens() {
 
 
 // Clear saved folder
+/*
 $files = glob('saved/*'); // get all file names
 foreach($files as $file){ // iterate files
   if(is_file($file))
@@ -33,6 +34,6 @@ $files = glob('screens/*'); // get all file names
 foreach($files as $file){ // iterate files
   if(is_file($file))
     unlink($file); // delete file
-}
+}*/
 
 require_once('includes/views/pages/index.php');

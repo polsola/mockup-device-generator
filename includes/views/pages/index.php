@@ -31,7 +31,7 @@
 							<?php if( isset( $device['variations'] ) ){ ?>
 								<ul class="variations">
 									<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
-										<li class="variations__item variations__item<?php echo $key_variation; ?>" data-image="<?php echo $key.$key_variation; ?>">
+										<li class="variations__item variations__item<?php echo $key_variation; ?>" data-image="<?php echo $key.$key_variation; ?>" data-variation="<?php echo $key_variation; ?>">
 											<span class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
 												<span class="variations__item__name"><?php echo $device_variation; ?></span>
 											</span>

@@ -61,6 +61,12 @@
 				padding: 8px;
 				flex-shrink: 0;
 				flex-grow: 0;
+				transition: .25s background-color;
+				&--variation {
+					&--silver, &--gold {
+						background-color: #2B2F39;
+					}
+				}
 			}
 			&__device {
 				width: 56px;

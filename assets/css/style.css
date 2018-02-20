@@ -21,20 +21,25 @@ h1, h2, h3 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
   .generated__item {
-    width: 50%;
-    padding: 30px; }
-    @media screen and (min-width: 600px) {
-      .generated__item {
-        width: 33.33%; } }
-    @media screen and (min-width: 920px) {
-      .generated__item {
-        width: 20%; } }
-    @media screen and (min-width: 1160px) {
-      .generated__item {
-        width: 20%; } }
+    padding: 30px;
+    height: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0; }
   .generated img {
-    display: block;
-    width: 100%; }
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: auto;
+    height: 100%;
+    margin: 0 auto; }
 
 .device-pick li a.selected {
   border-color: #0000ff; }
@@ -162,7 +167,11 @@ html, body, .app {
         flex-shrink: 0;
         -webkit-box-flex: 0;
         -ms-flex-positive: 0;
-        flex-grow: 0; }
+        flex-grow: 0;
+        -webkit-transition: .25s background-color;
+        transition: .25s background-color; }
+        .devices__item__link__placeholder--variation--silver, .devices__item__link__placeholder--variation--gold {
+          background-color: #2B2F39; }
       .devices__item__link__device {
         width: 56px;
         height: 56px;
