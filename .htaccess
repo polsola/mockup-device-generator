@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^compose /index.php?page=compose [NC,L]
+</IfModule>

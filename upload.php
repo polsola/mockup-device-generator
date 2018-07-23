@@ -44,6 +44,13 @@ function saveImage( $screen, $device = 'iphone6', $orientation = 'portrait' ) {
 
     // Get result
     $image = $result->getResult();
+    $dirPath = "saved";
+    $filename = $screen;
+    $createFolders = true; //will create the folder if not exist
+    $backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
+    $imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
+
+    $result->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 
     // Capture png image
     ob_start();

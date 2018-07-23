@@ -1,25 +1,47 @@
-<?php include('header.php'); ?>	
-	<h2>Pick a device: <span class="device_selected"></span></h2>
-	<ul class="devices">
-	<?php foreach ($compositions as $key => $composition) { ?>
-		<li class="devices__item">
-			<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php /*echo $device['name'];*/ ?>">
-				<img src="compositions/<?php echo generate_composition_thumbnail($key, $composition) ?>" />
-				<span class="devices__item__name"><?php /*echo $device['name'];*/ ?></span>
-			</a>
-			<?php if( isset( $device['variations'] ) ){ ?>
-				<ul class="variations">
-					<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
-						<li class="variations__item">
-							<a class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
-								<img src="devices/<?php echo $key.$key_variation.'.png'; ?>" />
-								<span class="variations__item__name"><?php echo $device_variation; ?></span>
-							</a>
-						</li>
-					<?php } ?>
+<?php include('includes/views/partials/header.php'); ?>
+	<div class="app__nav__header">
+		<h2>Pick a composition</h2>
+	</div>
+	<aside class="app__nav">
+		<?php foreach ($compositionCategories as $key => $category) { ?>
+			<section class="app__nav__section">
+				<h4 class="app__nav__section__title"><?php echo $category['label']; ?></h4>
+				<ul class="devices">
+				<?php foreach ($category['compositions'] as $key => $composition) { ?>
+					<li class="devices__item">
+						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php /*echo $device['name'];*/ ?>">
+							<span class="devices__item__link__placeholder">
+								<span class="devices__item__link__device" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/compositions/placeholder/<?php echo $key.'.png' ?>');">
+								</span>
+							</span>
+							<span class="devices__item__name"><?php echo $composition['name']; ?></span>
+						</a>
+						<?php if( isset( $device['variations'] ) ){ ?>
+							<ul class="variations">
+								<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
+									<li class="variations__item">
+										<a class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
+											<img src="devices/<?php echo $key.$key_variation.'.png'; ?>" />
+											<span class="variations__item__name"><?php echo $device_variation; ?></span>
+										</a>
+									</li>
+								<?php } ?>
+							</ul>
+						<?php } ?><!-- End variations -->
+					</li>
+				<?php } ?><!-- End devices -->
 				</ul>
-			<?php } ?><!-- End variations -->
-		</li>
-	<?php } ?><!-- End devices -->
-	</ul>
-<?php include('footer.php'); ?>
+			</section>
+		<?php } ?><!-- End categories -->
+	</aside>
+<section class="app__main">
+	<form action="upload.php" id="screen-uploader" class="dropzone">
+		<div class="fallback">
+			<input name="file" type="file" multiple />
+		</div>
+	</form>
+	<h2><span class="generated_count">0</span> images generated</h2>
+	<div class="generated">
+	</div>
+</section>
+<?php include('includes/views/partials/footer.php'); ?>

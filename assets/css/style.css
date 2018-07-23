@@ -275,7 +275,35 @@ html, body, .app {
 
 .app__aside {
   grid-area: aside;
-  background-color: #2B2F39; }
+  background-color: #2b2f39; }
+
+.page-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .page-nav__item__link {
+    background: url("../images/icons/devices.svg") no-repeat center 10px/42px 42px;
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: 5px;
+    font-size: 0.8rem; }
+    .page-nav__item__link--compose {
+      background-image: url("../images/icons/compose.svg"); }
+  .page-nav__item--active {
+    background-color: #00ABFF; }
 
 @-webkit-keyframes passing-through {
   0% {

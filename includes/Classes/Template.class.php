@@ -117,95 +117,114 @@ class Template {
 		return $devices;
 	}
 
-	public static function getCompositions() {
+	public static function getCompositions($withCategories) {
 
-		$compositions = array(
-			'2iphones' => array(
-								'information' => array(
-									'width' 	=> 1108,
-									'height'	=> 1118
-								),
-								'layers' => array(
-									0 => array(
-										'device' 	=> 'iphone8',
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 0, 'y' => 0)
-									),
-									1 => array(
-										'device' 	=> 'iphone8',
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 200, 'y' => 0)
-									)
-								)
-							),
-			'3iphones' => array(
-								'information' => array(
-									'width' 	=> 2216,
-									'height'	=> 2236
-								),
-								'layers' => array(
-									0 => array(
-										'device' 	=> 'iphone8',
-										'resize' 	=> 90,
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 0, 'y' => 100)
-									),
-									1 => array(
-										'device' 	=> 'iphone8--silver',
-										'resize' 	=> 90,
-										'from'		=> 'RT',
-										'pos'		=> array('x' => 0, 'y' => 100)
-									),
-									2 => array(
-										'device' 	=> 'iphone8--gold',
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 400, 'y' => 0)
-									)
-								)
-							),
-			'iphoneipad' => array(
-								'information' => array(
-									'width' 	=> 1516,
-									'height'	=> 1336
-								),
-								'layers' => array(
-									0 => array(
-										'device' 	=> 'ipad-air-2',
-										'from'		=> 'RB',
-										'pos'		=> array('x' => 0, 'y' => 0)
-									),
-									1 => array(
-										'device' 	=> 'iphone8--gold',
-										'from'		=> 'LB',
-										'resize'	=> 40,
-										'pos'		=> array('x' => 400, 'y' => -103)
-									)
-								)
-							),
-			'3ipadpro' => array(
-								'information' => array(
-									'width' 	=> 2064,
-									'height'	=> 1596
-								),
-								'layers' => array(
-									2 => array(
-										'device' 	=> 'ipadpro',
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 0, 'y' => 0)
-									),
-									1 => array(
-										'device' 	=> 'ipadpro--gold',
-										'from'		=> 'LT',
-										'pos'		=> array('x' => 400, 'y' => 0)
-									),
-									0 => array(
-										'device' 	=> 'ipadpro--silver',
-										'from'		=> 'RT',
-										'pos'		=> array('x' => 0, 'y' => 0)
-									)
-								)
-							),
+		$compositions2 = $compositions3 = array();
+
+		$compositions2['2iphones'] = array(
+			'name' => '2 iPhones',
+			'information' => array(
+				'width' 	=> 1108,
+				'height'	=> 1118
+			),
+			'layers' => array(
+				0 => array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LT',
+					'pos'		=> array('x' => 0, 'y' => 0)
+				),
+				1 => array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LT',
+					'pos'		=> array('x' => 200, 'y' => 0)
+				)
+			)
 		);
+		$compositions3['3iphones'] = array(
+				'name' => '3 iPhones',
+				'information' => array(
+					'width' 	=> 2216,
+					'height'	=> 2236
+				),
+				'layers' => array(
+					0 => array(
+						'device' 	=> 'iphone8',
+						'resize' 	=> 90,
+						'from'		=> 'LT',
+						'pos'		=> array('x' => 0, 'y' => 100)
+					),
+					1 => array(
+						'device' 	=> 'iphone8--silver',
+						'resize' 	=> 90,
+						'from'		=> 'RT',
+						'pos'		=> array('x' => 0, 'y' => 100)
+					),
+					2 => array(
+						'device' 	=> 'iphone8--gold',
+						'from'		=> 'LT',
+						'pos'		=> array('x' => 400, 'y' => 0)
+					)
+				)
+			);
+			$compositions2['iphoneipad'] = array(
+				'name' => 'iPhone + iPad',
+				'information' => array(
+					'width' 	=> 1516,
+					'height'	=> 1336
+				),
+				'layers' => array(
+					0 => array(
+						'device' 	=> 'ipad-air-2',
+						'from'		=> 'RB',
+						'pos'		=> array('x' => 0, 'y' => 0)
+					),
+					1 => array(
+						'device' 	=> 'iphone8--gold',
+						'from'		=> 'LB',
+						'resize'	=> 40,
+						'pos'		=> array('x' => 400, 'y' => -103)
+					)
+				)
+			);
+			$compositions3['3ipadpro'] = array(
+				'name' => '3 iPad Pro',
+				'information' => array(
+					'width' 	=> 2064,
+					'height'	=> 1596
+				),
+				'layers' => array(
+					2 => array(
+						'device' 	=> 'ipadpro',
+						'from'		=> 'LT',
+						'pos'		=> array('x' => 0, 'y' => 0)
+					),
+					1 => array(
+						'device' 	=> 'ipadpro--gold',
+						'from'		=> 'LT',
+						'pos'		=> array('x' => 400, 'y' => 0)
+					),
+					0 => array(
+						'device' 	=> 'ipadpro--silver',
+						'from'		=> 'RT',
+						'pos'		=> array('x' => 0, 'y' => 0)
+					)
+				)
+			);
+
+		if( $withCategories ) {
+			$compositions = array(
+				'2devices' => array(
+					'label' => '2 devices',
+					'compositions' => $compositions2
+				),
+				'3devices' => array(
+					'label' => '3 devices',
+					'compositions' => $compositions3
+				)
+			);
+		} else {
+			$compositions = $compositions2 + $compositions3;
+		}
 
 		return $compositions;
 

@@ -8,6 +8,7 @@ use PHPImageWorkshop\ImageWorkshop;
 use Classes\Template as Template;
 
 $deviceCategories = Template::getDevices(true);
+$compositionCategories = Template::getCompositions(true);
 
 //require_once('functions.php');
 
@@ -36,4 +37,10 @@ foreach($files as $file){ // iterate files
     unlink($file); // delete file
 }*/
 
-require_once('includes/views/pages/index.php');
+if( isset($_GET['page']) && $_GET['page'] == 'compose' ) {
+	$page = 'compose';
+	require_once('includes/views/pages/compose.php');
+} else {
+	$page = 'index';
+	require_once('includes/views/pages/index.php');
+}

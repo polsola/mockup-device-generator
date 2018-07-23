@@ -1,4 +1,33 @@
 .app__aside {
-	grid-area: aside;
-	background-color: #2B2F39;
+  grid-area: aside;
+  background-color: #2b2f39;
+}
+
+.page-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    &__link {
+      background: url("../images/icons/devices.svg") no-repeat center 10px/42px
+        42px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      padding-bottom: 5px;
+      font-size: 0.8rem;
+      &--compose {
+        background-image: url("../images/icons/compose.svg");
+      }
+    }
+    &--active {
+      background-color: $primary-color;
+    }
+  }
 }
