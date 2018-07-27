@@ -11,7 +11,7 @@
 					<li class="devices__item">
 						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php /*echo $device['name'];*/ ?>">
 							<span class="devices__item__link__placeholder">
-								<span class="devices__item__link__device" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/compositions/placeholder/<?php echo $key.'.png' ?>');">
+								<span class="devices__item__link__device" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/compositions/placeholder/<?php echo $key.'.png' ?>');">
 								</span>
 							</span>
 							<span class="devices__item__name"><?php echo $composition['name']; ?></span>

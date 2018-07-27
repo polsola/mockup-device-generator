@@ -8,9 +8,9 @@ class CompositionGenerator {
 
 	function __construct() {
 		$this->compositions = Template::getCompositions();
-		$this->originalRoute = DOCUMENT_ROOT . '/assets/images/compositions/original/';
-		$this->placeholderRoute = DOCUMENT_ROOT . '/assets/images/compositions/placeholder/';
-		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/assets/images/devices/placeholder/';
+		$this->originalRoute = DOCUMENT_ROOT . '/static/images/compositions/original/';
+		$this->placeholderRoute = DOCUMENT_ROOT . '/static/images/compositions/placeholder/';
+		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/';
 	}
 
 	private function getCompositionAtts( $composition ) {

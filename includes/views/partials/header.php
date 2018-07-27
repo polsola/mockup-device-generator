@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Mockup Device Generator</title>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="assets/css/style.css" />
-	<script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="assets/js/dropzone.min.js"></script>
-	<script type="text/javascript" src="assets/js/main.js"></script>
+	<link rel="stylesheet" href="static/styles/style.css" />
+	<script type="text/javascript" src="static/scripts/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="static/scripts/dropzone.min.js"></script>
+	<script type="text/javascript" src="static/scripts/app.js"></script>
 </head>
 <body>
 	<main class="app">

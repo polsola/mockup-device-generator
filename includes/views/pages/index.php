@@ -19,7 +19,7 @@
 					<li class="devices__item">
 						<a class="devices__item__link" href="<?php echo $key; ?>" data-device-name="<?php echo $device['name']; ?>" data-screen-width="<?php echo $device['screen']['width']; ?>" data-screen-height="<?php echo $device['screen']['height']; ?>">
 							<span class="devices__item__link__placeholder">
-								<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('assets/images/devices/placeholder/<?php echo $key.'.png' ?>');">
+								<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/devices/placeholder/<?php echo $key.'.png' ?>');">
 								</span>
 							</span>
 							<span class="devices__item__name">

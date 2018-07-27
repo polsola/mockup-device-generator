@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/polsola/php-device-image-generator#readme",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1",
+    "browser-sync": "^2.24.6",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.1.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-clean-css": "^3.9.4",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-uglify": "^3.0.1"
   }
 }

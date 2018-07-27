@@ -8,8 +8,8 @@ class Generator {
 
 	function __construct() {
 		$this->devices = Template::getDevices();
-		$this->originalRoute = DOCUMENT_ROOT . '/assets/images/devices/original/';
-		$this->placeHolderRoute = DOCUMENT_ROOT . '/assets/images/devices/placeholder/';
+		$this->originalRoute = DOCUMENT_ROOT . '/static/images/devices/original/';
+		$this->placeHolderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/';
 	}
 
 	// Function to create device
