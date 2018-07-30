@@ -15,5 +15,5 @@ foreach ($compositions as $key => $composition) {
 
 	$generator->createPlaceholder($key);
 
-	echo 'Generated';
+	echo 'Generated ' . $key . '<br/>';
 }

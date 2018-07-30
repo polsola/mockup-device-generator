@@ -2,3 +2,19 @@
 	grid-area: main;
 	padding: 30px;
 }
+
+.composition-devices {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	.devices__item {
+		&__link {
+			padding-left: 0;
+			padding-right: 0;
+			&__index {
+				padding-right: 1rem;
+			}
+		}
+		
+	}
+}

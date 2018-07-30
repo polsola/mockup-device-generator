@@ -230,6 +230,27 @@ class Template {
 			)
 		);
 
+		$compositions2['iphonemacbook'] = array(
+			'name' => 'iPhone 8 + MacBook Pro',
+			'information' => array(
+				'width' 	=> 1532,
+				'height'	=> 900
+			),
+			'layers' => array(
+				array(
+					'device' 	=> 'macbook',
+					'from'		=> 'MM',
+					'pos'		=> array('x' => 0, 'y' => 0)
+				),
+				array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LB',
+					'pos'		=> array('x' => 30, 'y' => 0),
+					'resize'	=> 60
+				)
+			)
+		);
+
 		if( $withCategories ) {
 			$compositions = array(
 				'2devices' => array(
@@ -248,4 +269,5 @@ class Template {
 		return $compositions;
 
 	}
+
 }

@@ -60,7 +60,18 @@ class CompositionGenerator {
 			// Add new device on top of current comp
 			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
 		}
+		/* TODO: Create new function in FileManager to resize */
+		// Resize image
+		$thumbWidth = 200; // px
+		$thumbHeight = 200;
+		$conserveProportion = true;
+		$positionX = 0; // px
+		$positionY = 0; // px
+		$position = 'MM';
+		
+		$comp->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
 
+		/* TODO: Move this to filemanager also */
 		// Save image
 		$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
 		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)

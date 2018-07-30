@@ -9,7 +9,7 @@
 				<ul class="devices">
 				<?php foreach ($category['compositions'] as $key => $composition) { ?>
 					<li class="devices__item">
-						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php echo $composition['name']; ?>" data-layers-count="<?php echo count($composition['layers']); ?>">
+						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php echo $composition['name']; ?>" data-layers-count="<?php echo count($composition['layers']); ?>" data-layers="<?php echo htmlspecialchars(json_encode($composition['layers']), ENT_QUOTES, 'UTF-8'); ?>">
 							<span class="devices__item__link__placeholder">
 								<span class="devices__item__link__device" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/compositions/placeholder/<?php echo $key.'.png' ?>');">
 								</span>
@@ -37,6 +37,8 @@
 		<input id="composition-devices-count" name="composition-devices-count" type="hidden" />
 	</aside>
 	<section class="app__main">
+		<div id="composition-options" class="composition-options">
+		</div>
 		<form action="upload-composition.php" id="screen-uploader" class="dropzone">
 			<div class="fallback">
 				<input name="file" type="file" multiple />

@@ -16,33 +16,36 @@ $(function () {
 	});
 
 	// Preview image on hover variation
-	$('.variations .variations__item').hover(function (e) {
+	$('body').on('mouseenter', '.variations .variations__item', function (e) {
 
 		var image = $(this).data('image');
 		var variation = $(this).data('variation');
 		var $deviceLink = $(this).closest('.devices__item__link');
 		var $device = $deviceLink.find('.devices__item__link__device');
 
-		var backgroundUrl = 'assets/images/devices/placeholder/' + image + '.png';
+		var backgroundUrl = 'static/images/devices/placeholder/' + image + '.png';
 		$deviceLink.find('small').html($(this).text());
 		$deviceLink.find('.devices__item__link__placeholder').addClass('devices__item__link__placeholder--variation' + variation);
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 
-	}, function (e) {
+	});
+
+	// Reset on leave
+	$('body').on('mouseleave', '.variations .variations__item', function (e) {
 
 		var variation = $(this).data('variation');
 		var $deviceLink = $(this).closest('.devices__item__link');
 		var $device = $deviceLink.find('.devices__item__link__device');
 		var $deviceLinkSmall = $deviceLink.find('small');
 
-		var backgroundUrl = 'assets/images/devices/placeholder/' + $device.data('original-image') + '.png';
+		var backgroundUrl = 'static/images/devices/placeholder/' + $device.data('original-image') + '.png';
 		$deviceLink.find('.devices__item__link__placeholder').removeClass('devices__item__link__placeholder--variation' + variation);
 		$deviceLinkSmall.html($deviceLinkSmall.data('original-variation'));
 		$device.css('background-image', 'url(' + backgroundUrl + ')');
 	});
 
 	// Mantain variation on click
-	$('.variations .variations__item').click(function (e) {
+	$('body').on('click', '.variations .variations__item', function (e) {
 
 		var image = $(this).data('image');
 		var variation = $(this).data('variation');
@@ -55,9 +58,6 @@ $(function () {
 		$deviceLinkSmall.data('original-variation', $(this).text());
 		$deviceLink.find('.devices__item__link__placeholder').addClass('devices__item__link__placeholder--variation' + variation);
 	});
-
-	// Trigger click on first item on load
-	$('.app__nav__section:first-child .devices .devices__item:first-child .devices__item__link').trigger('click');
 
 	// Orientation switcher: Change it for devaices that can rotate
 	$('.orientation__item').click(function (e) {
