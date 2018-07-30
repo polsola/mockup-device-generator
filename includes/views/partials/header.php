@@ -15,8 +15,18 @@
 		<aside class="app__aside">
 			<nav class="app__aside__nav">
 				<ul class="page-nav">
-					<li class="page-nav__item<?php if($page == 'index'):?> page-nav__item--active<?php endif; ?>"><a href="/" class="page-nav__item__link page-nav__item__link--devices">Devices</a></li>
-					<li class="page-nav__item<?php if($page == 'compose'):?> page-nav__item--active<?php endif; ?>"><a href="/compose" class="page-nav__item__link page-nav__item__link--compose">Compose</a></li>
+					<li class="page-nav__item<?php if($page == 'index'):?> page-nav__item--active<?php endif; ?>">
+						<a href="/" class="page-nav__item__link page-nav__item__link--devices">
+							<img src="/static/images/icons/devices.svg" alt="Devices">
+							Devices
+						</a>
+					</li>
+					<li class="page-nav__item<?php if($page == 'compose'):?> page-nav__item--active<?php endif; ?>">
+						<a href="/compose" class="page-nav__item__link page-nav__item__link--compose">
+							<img src="/static/images/icons/compose.svg" alt="Compose">
+							Compose
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</aside>

@@ -3,6 +3,8 @@ namespace Classes;
 
 use PHPImageWorkshop\ImageWorkshop;
 use Classes\Template as Template;
+use Classes\Generator as Generator;
+use Classes\FileManager as FileManager;
 
 class CompositionGenerator {
 
@@ -13,6 +15,9 @@ class CompositionGenerator {
 		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/';
 	}
 
+	/**
+	 * Get composition atts
+	 */
 	private function getCompositionAtts( $composition ) {
 
 		$composition_atts = $this->compositions[ $composition ];
@@ -20,77 +25,107 @@ class CompositionGenerator {
 		return $composition_atts;
 	}
 
+	/**
+	 * Create Placeholders
+	 * 
+	 * Generate placeholder images to use in navigation
+	 * 
+	 * @param string $composition Compostion to generate
+	 */
 	public function createPlaceholder( $composition ) {
 
+		// Check if file already exist to prevent regeneration
 		$filename =  $composition . ".png";
 		if( file_exists( $this->placeholderRoute . $filename ) ) {
 			return;
 		}
 
+		// Get comp atts
 		$compAtts = $this->getCompositionAtts( $composition );
 
-		// Container image
+		// Create container image
 		$comp = ImageWorkshop::initVirginLayer($compAtts['information']['width'], $compAtts['information']['height']);
 
-		// Add layers over the image
+		// Add a layers for each device in the composition
 		foreach ($compAtts['layers'] as $key => $layer) {
+
+			// Use already created device placeholder image for composition
 			$device = ImageWorkshop::initFromPath($this->devicePlaceholderRoute . $layer['device'].'.png');
+			
+			// Resize if nedded
 			if( isset($layer['resize']) ) {
 				$device->resizeInPercent($layer['resize'], $layer['resize']);
 			}
+
+			// Add new device on top of current comp
 			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
 		}
 
+		// Save image
 		$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
 		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
 		$comp->save($this->placeholderRoute, $filename, false, $backgroundColor, $imageQuality);
 
 	}
-}
-/*
-function get_device_orientation( $device ) {
-	$device_image = $device.'.png';
 
-	list($width, $height) = getimagesize( 'assets/images/devices/'.$device_image );
+	/**
+	 * Create composition
+	 * 
+	 * Creates composition based on an array of images
+	 * @param array $screens Array of screens uploaded by user to use in composition
+	 * @param string $composition Identifier of composition to get atts
+	 */
+	public function createComposition($screens, $composition) {
 
-	if ($width > $height) {
-    	return 'landscape';
-	} else {
-	    return 'portrait';
-	}
+		// Get composition atts
+		$compAtts = $this->getCompositionAtts( $composition );
 
-}
+		// Container image
+		$comp = ImageWorkshop::initVirginLayer($compAtts['information']['width'], $compAtts['information']['height']);
 
-function generate_composition_thumbnail ( $name, $comp ) {
+		// Device generator
+		$generator = new Generator();
 
-	// Container image
-	$emptyLayer = ImageWorkshop::initVirginLayer($comp['information']['width'], $comp['information']['height']);
+		// Add a layers for each device in the composition
+		foreach ($compAtts['layers'] as $key => $layer) {
+			
+			// Create device using $generator
+			$device = $generator->createDevice( $screens[$key], $layer['device'] );
 
-	// Add layers over the image
-	foreach ($comp['layers'] as $key => $layer) {
-		$device = ImageWorkshop::initFromPath(__DIR__.'/devices/'.$layer['device'].'.png');
-		if( isset($layer['resize']) ) {
-			$device->resizeInPercent($layer['resize'], $layer['resize']);
+			// Resize if needed
+			if( isset($layer['resize']) ) {
+				$device->resizeInPercent($layer['resize'], $layer['resize']);
+			}
+
+			// Add new device on top of current comp
+			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
 		}
-		$emptyLayer->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
+
+		return $comp;
 	}
 
+	public function save( $screens, $composition = '2iphones8') {
 
-	//Saving the result
-	$dirPath = "compositions";
-	$filename = $name.'.png';
-	$createFolders = true; //will create the folder if not exist
-	$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
-	$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
-
-	$emptyLayer->resizeInPercent(50, 50);
-	$emptyLayer->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
-
-
-	return $filename;
-
+		$generator = new CompositionGenerator();
+		$result = $generator->createComposition( $screens , $composition );
+	
+		// File Manager
+		$fileManager = new FileManager();
+		
+		// Save file
+		$fileManager->save($result, $composition . '.png');
+		
+		// Capture png image
+		$base64image = $fileManager->base64Image($result);
+	
+		// Remove screens
+		foreach($screens as $screen) {
+			unlink('screens/' . $screen);
+		}
+	
+		// Return image code for view
+		return $base64image;
+	
+	}
 }
-
-?>
-*/

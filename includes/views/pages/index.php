@@ -57,4 +57,5 @@
 		<div class="generated">
 		</div>
 	</section>
+	<script type="text/javascript" src="/static/scripts/upload-device.js"></script>
 <?php include('includes/views/partials/footer.php'); ?>

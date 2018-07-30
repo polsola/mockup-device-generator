@@ -9,7 +9,7 @@
 				<ul class="devices">
 				<?php foreach ($category['compositions'] as $key => $composition) { ?>
 					<li class="devices__item">
-						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php /*echo $device['name'];*/ ?>">
+						<a class="devices__item__link devices__item__link--landscape" href="<?php echo $key; ?>" data-device-name="<?php echo $composition['name']; ?>" data-layers-count="<?php echo count($composition['layers']); ?>">
 							<span class="devices__item__link__placeholder">
 								<span class="devices__item__link__device" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/compositions/placeholder/<?php echo $key.'.png' ?>');">
 								</span>
@@ -33,15 +33,18 @@
 				</ul>
 			</section>
 		<?php } ?><!-- End categories -->
+		<input id="device-pick" name="device-pick" type="hidden" />
+		<input id="composition-devices-count" name="composition-devices-count" type="hidden" />
 	</aside>
-<section class="app__main">
-	<form action="upload.php" id="screen-uploader" class="dropzone">
-		<div class="fallback">
-			<input name="file" type="file" multiple />
+	<section class="app__main">
+		<form action="upload-composition.php" id="screen-uploader" class="dropzone">
+			<div class="fallback">
+				<input name="file" type="file" multiple />
+			</div>
+		</form>
+		<h2><span class="generated_count">0</span> images generated</h2>
+		<div class="generated">
 		</div>
-	</form>
-	<h2><span class="generated_count">0</span> images generated</h2>
-	<div class="generated">
-	</div>
-</section>
+	</section>
+	<script type="text/javascript" src="/static/scripts/upload-composition.js"></script>
 <?php include('includes/views/partials/footer.php'); ?>

@@ -3,6 +3,7 @@ namespace Classes;
 
 use PHPImageWorkshop\ImageWorkshop;
 use Classes\Template as Template;
+use Classes\FileManager as FileManager;
 
 class Generator {
 
@@ -13,7 +14,7 @@ class Generator {
 	}
 
 	// Function to create device
-	public function createDevice( $screen, $device, $orientation, $placeholder = false ) {
+	public function createDevice( $screen, $device, $orientation = 'portrait', $placeholder = false ) {
 
 		$device_atts = $this->getDeviceAtts( $device );
 
@@ -96,5 +97,27 @@ class Generator {
 		$device_atts = $this->devices[ $device_array[0] ];
 
 		return $device_atts;
+	}
+
+	public function save( $screen, $device = 'iphone8', $orientation = 'portrait' ) {
+
+		$generator = new Generator();
+		$result = $generator->createDevice( $screen , $device, $orientation );
+
+		// File Manager
+		$fileManager = new FileManager();
+		
+		// Save file
+		$fileManager->save($result, $screen);
+	  
+		// Capture png image
+		$base64image = $fileManager->base64Image($result);
+
+		// Remove uploaded screen
+		unlink('screens/' . $screen);
+	  
+		// Return image code for view
+		return $base64image;
+	  
 	}
 }

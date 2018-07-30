@@ -27,7 +27,7 @@ gulp.task("styles", function (done) {
       })
     )
     .pipe(cleanCSS())
-    .pipe(gulp.dest(paths.static + "styles"))
+    .pipe(gulp.dest(paths.dirs.static + "styles"))
     .pipe(browserSync.stream());
   done();
 });
@@ -38,7 +38,7 @@ gulp.task('scripts', function (done) {
     .src(paths.js)
     .pipe(plumber())
     .pipe(uglify())
-    .pipe(gulp.dest(paths.static + "scripts"))
+    .pipe(gulp.dest(paths.dirs.static + "scripts"))
     .pipe(browserSync.stream());
   done();
 });

@@ -9,10 +9,10 @@
   padding: 0;
 
   &__item {
+    padding: 1rem;
     &__link {
-      background: url("../images/icons/devices.svg") no-repeat center 10px/42px
-        42px;
-      height: 80px;
+      //background: url("..") no-repeat center 10px/42px
+      
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -20,14 +20,20 @@
       text-transform: uppercase;
       text-align: center;
       text-decoration: none;
-      padding-bottom: 5px;
+      //padding-bottom: 5px;
       font-size: 0.8rem;
-      &--compose {
-        background-image: url("../images/icons/compose.svg");
+      
+      img {
+        height: 64px;
+        padding: 0.5rem;
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
       }
     }
     &--active {
-      background-color: $primary-color;
+      img {
+        background-color: $primary-color;  
+      }
     }
   }
 }
