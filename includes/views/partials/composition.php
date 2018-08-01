@@ -27,12 +27,13 @@ $composition = $compositions[$_GET['composition']];
             <span class="devices__item__name">
                 <?php echo $device['name']; ?>
                 <?php if( isset( $device['variations'] ) ){ ?>
-                    <small data-original-variation="<?php echo $device['variations']['']; ?>"><?php echo $device['variations']['']; ?></small>
+                    <small class="current-variation" data-original-variation="<?php echo $device['variations']['']; ?>"><?php echo $device['variations']['']; ?></small>
                 <?php } ?>
+                <small class="devices__item__size">
+                    Recommended size: <strong class="screen-width"><?php echo $device['screen']['width']; ?></strong>x<strong class="screen-height"><?php echo $device['screen']['height']; ?></strong> px
+                </small>
             </span>
-            <!--<span class="devices__item__size">
-                Recommended size: <strong class="screen-width"><?php echo $device['screen']['width']; ?></strong>x<strong class="screen-height"><?php echo $device['screen']['height']; ?></strong> px
-            </span>-->
+            
             <?php if( isset( $device['variations'] ) ){ $variation_index = 0; ?>
                 <ul class="variations">
                     <?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>

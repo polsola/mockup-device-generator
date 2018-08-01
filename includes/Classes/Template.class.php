@@ -119,7 +119,7 @@ class Template {
 
 	public static function getCompositions( $withCategories = false ) {
 
-		$compositions2 = $compositions3 = array();
+		$compositions2 = $compositions3 = $compositions4 = array();
 
 		$compositions2['2iphonesx'] = array(
 			'name' => '2 iPhones X',
@@ -271,6 +271,62 @@ class Template {
 			)
 		);
 
+		$compositions3['iphone-ipad-imac'] = array(
+			'name' => 'iPhone 8 + iPad + iMac',
+			'information' => array(
+				'width' 	=> 1600,
+				'height'	=> 1176
+			),
+			'layers' => array(
+				array(
+					'device' 	=> 'imac',
+					'from'		=> 'RB'
+				),
+				array(
+					'device' 	=> 'ipad-air-2',
+					'from'		=> 'LB',
+					'resize'	=> 50
+				),
+				array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LB',
+					'pos'		=> array('x' => 350),
+					'resize'	=> 45
+				)
+			)
+		);
+
+		$compositions4['iphone-ipad-imac-macbook'] = array(
+			'name' => 'iPhone 8 + iPad + MacBook + iMac',
+			'information' => array(
+				'width' 	=> 2200,
+				'height'	=> 1176
+			),
+			'layers' => array(
+				array(
+					'device' 	=> 'imac',
+					'from'		=> 'LB',
+					'pos'		=> array('x' => 250),
+				),
+				array(
+					'device' 	=> 'macbook',
+					'from'		=> 'RB',
+					'resize'	=> 70
+				),
+				array(
+					'device' 	=> 'ipad-air-2',
+					'from'		=> 'LB',
+					'resize'	=> 50
+				),
+				array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LB',
+					'pos'		=> array('x' => 350),
+					'resize'	=> 45
+				)
+			)
+		);
+
 		if( $withCategories ) {
 			$compositions = array(
 				'2devices' => array(
@@ -280,10 +336,14 @@ class Template {
 				'3devices' => array(
 					'label' => '3 devices',
 					'compositions' => $compositions3
+				),
+				'4devices' => array(
+					'label' => '4 devices',
+					'compositions' => $compositions4
 				)
 			);
 		} else {
-			$compositions = $compositions2 + $compositions3;
+			$compositions = $compositions2 + $compositions3  + $compositions4;
 		}
 
 		return $compositions;

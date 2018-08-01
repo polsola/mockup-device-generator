@@ -170,11 +170,14 @@ class CompositionGenerator {
 			'x' => 0,
 			'y'	=> 0
 		);
+		
 		if( isset($layer['pos']['x']) ) {
 			$devicePosition['x'] = $layer['pos']['x'];
 		}
 		if( isset($layer['pos']['y']) ) {
 			$devicePosition['y'] = $layer['pos']['y'];
 		}
+
+		return $devicePosition;
 	}
 }

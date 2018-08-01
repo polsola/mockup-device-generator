@@ -25,7 +25,7 @@ $(function () {
 
 		if (!$(this).hasClass('variations__item--active')) {
 			var backgroundUrl = placeholderBaseUrl + image + '.png';
-			$deviceLink.find('small').html($(this).text());
+			$deviceLink.find('.current-variation').html($(this).text());
 			$deviceLink.find('.devices__item__link__placeholder').addClass('devices__item__link__placeholder--variation' + variation);
 			$device.css('background-image', 'url(' + backgroundUrl + ')');
 		}
@@ -38,7 +38,7 @@ $(function () {
 		var variation = $(this).data('variation');
 		var $deviceLink = $(this).closest('.devices__item__link');
 		var $device = $deviceLink.find('.devices__item__link__device');
-		var $deviceLinkSmall = $deviceLink.find('small');
+		var $deviceLinkSmall = $deviceLink.find('.current-variation');
 
 		//console.log($(this).hasClass('variations__item--active'));
 
