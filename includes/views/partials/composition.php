@@ -21,7 +21,7 @@ $composition = $compositions[$_GET['composition']];
             data-screen-height="<?php echo $device['screen']['height']; ?>">
             <span class="devices__item__link__index"><?php echo $index+1; ?></span>
             <span class="devices__item__link__placeholder">
-                <span class="devices__item__link__device" data-original-image="<?php echo $layer['device']; ?>" style="background-image: url('static/images/devices/placeholder/<?php echo $layer['device'].'.png' ?>');">
+<span class="devices__item__link__device<?php if( isset($layer['orientation']) && $layer['orientation'] == 'landscape' && isset($device['landscape']) ): ?> devices__item__link__device--landscape<?php endif; ?>" data-original-image="<?php echo $layer['device']; ?>" style="background-image: url('static/images/devices/placeholder/small/<?php echo $layer['device'].'.png' ?>');">
                 </span>
             </span>
             <span class="devices__item__name">

@@ -55,6 +55,7 @@
 			transition: background-color .25s, color .25s;
 			position: relative;
 			padding: 15px 30px;
+			cursor: pointer;
 			&__placeholder {
 				background-color: $bg-color;
 				border-radius: 10px;
@@ -134,7 +135,6 @@
 		flex-shrink: 0;
 		flex-grow: 0;
 		margin-left: 10px;
-		cursor: pointer;
 		border: 2px solid transparent;
 		transition: .25s border-color;
 		&--active, &:hover {

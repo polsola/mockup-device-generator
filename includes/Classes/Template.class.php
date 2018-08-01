@@ -230,6 +230,26 @@ class Template {
 			)
 		);
 
+		$compositions2['iphoneipadland'] = array(
+			'name' => 'iPhone 8 + iPad Air Landscape',
+			'information' => array(
+				'width' 	=> 1500,
+				'height'	=> 1100
+			),
+			'layers' => array(
+				array(
+					'device' 	=> 'ipad-air-2',
+					'from'		=> 'RB',
+					'orientation' => 'landscape'
+				),
+				array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LB',
+					'orientation' => 'landscape'
+				)
+			)
+		);
+
 		$compositions2['iphonemacbook'] = array(
 			'name' => 'iPhone 8 + MacBook Pro',
 			'information' => array(

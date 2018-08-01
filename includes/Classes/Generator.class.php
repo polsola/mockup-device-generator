@@ -73,7 +73,7 @@ class Generator {
 	public function createPlaceholder( $device ) {
 
 		$filename =  $device . ".png";
-		if( file_exists( $this->placeHolderRoute . $filename ) ) {
+		if( file_exists( $this->placeHolderRoute . 'large/' . $filename ) ) {
 			return;
 		}
 
@@ -86,8 +86,9 @@ class Generator {
 
 		// Resize and save
 		$fileManager = new FileManager();
+		$fileManager->save($placeholder, $filename, $this->placeHolderRoute . 'large/');
 		$placeholder = $fileManager->resize($placeholder, 200);
-		$fileManager->save($placeholder, $filename, $this->placeHolderRoute);
+		$fileManager->save($placeholder, $filename, $this->placeHolderRoute . 'small/');
 	}
 
 	private function getDeviceAtts( $device ) {

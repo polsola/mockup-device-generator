@@ -12,7 +12,7 @@ class CompositionGenerator {
 		$this->compositions = Template::getCompositions();
 		$this->originalRoute = DOCUMENT_ROOT . '/static/images/compositions/original/';
 		$this->placeholderRoute = DOCUMENT_ROOT . '/static/images/compositions/placeholder/';
-		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/';
+		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/large/';
 	}
 
 	/**
@@ -51,15 +51,33 @@ class CompositionGenerator {
 
 			// Use already created device placeholder image for composition
 			$device = ImageWorkshop::initFromPath($this->devicePlaceholderRoute . $layer['device'].'.png');
+
+			// Check orientation
+			if( isset($layer['orientation']) && $layer['orientation'] == 'landscape' ) {
+				$device->rotate(-90);
+			}
 			
 			// Resize if nedded
 			if( isset($layer['resize']) ) {
 				$device->resizeInPercent($layer['resize'], $layer['resize']);
 			}
 
+			// Add number to device
+			$fontPath = "../../static/fonts/OpenSans-Bold.ttf";
+			$fontSize = 160;
+			$fontColor = "FFFFFF";
+			$textRotation = 0;
+				
+			$textLayer = ImageWorkshop::initTextLayer($key+1, $fontPath, $fontSize, $fontColor, $textRotation);
+			$device->addLayerOnTop($textLayer, 0, 0, 'MM');
+
+			// Check position
+			$devicePosition = $this->getDevicePosition($layer);
+
 			// Add new device on top of current comp
-			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
+			$comp->addLayerOnTop($device, $devicePosition['x'], $devicePosition['y'], $layer['from']);
 		}
+		
 		
 		// Resize and save
 		$fileManager = new FileManager();
@@ -98,17 +116,26 @@ class CompositionGenerator {
 			} else {
 				$device = $layer['device'];
 			}
+
+			// Check orientation
+			$orientation = 'portrait';
+			if( isset($layer['orientation']) && $layer['orientation'] == 'landscape' ) {
+				$orientation = 'landscape';
+			}
 			
 			// Create device using $generator
-			$device = $generator->createDevice( $screens[$key], $device );
+			$device = $generator->createDevice( $screens[$key], $device, $orientation );
 
 			// Resize if needed
 			if( isset($layer['resize']) ) {
 				$device->resizeInPercent($layer['resize'], $layer['resize']);
 			}
 
+			// Check position
+			$devicePosition = $this->getDevicePosition($layer);
+
 			// Add new device on top of current comp
-			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
+			$comp->addLayerOnTop($device, $devicePosition['x'], $devicePosition['y'], $layer['from']);
 		}
 
 		return $comp;
@@ -136,5 +163,18 @@ class CompositionGenerator {
 		// Return image code for view
 		return $base64image;
 	
+	}
+
+	private function getDevicePosition($layer) {
+		$devicePosition = array(
+			'x' => 0,
+			'y'	=> 0
+		);
+		if( isset($layer['pos']['x']) ) {
+			$devicePosition['x'] = $layer['pos']['x'];
+		}
+		if( isset($layer['pos']['y']) ) {
+			$devicePosition['y'] = $layer['pos']['y'];
+		}
 	}
 }

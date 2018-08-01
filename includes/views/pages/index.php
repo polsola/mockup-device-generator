@@ -19,7 +19,7 @@
 					<li class="devices__item">
 						<a class="devices__item__link" href="<?php echo $key; ?>" data-device-name="<?php echo $device['name']; ?>" data-screen-width="<?php echo $device['screen']['width']; ?>" data-screen-height="<?php echo $device['screen']['height']; ?>">
 							<span class="devices__item__link__placeholder">
-								<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/devices/placeholder/<?php echo $key.'.png' ?>');">
+								<span class="devices__item__link__device<?php if(isset($device['landscape'])): ?> devices__item__link__device--rotate<?php endif; ?>" data-original-image="<?php echo $key; ?>" style="background-image: url('static/images/devices/placeholder/small/<?php echo $key.'.png' ?>');">
 								</span>
 							</span>
 							<span class="devices__item__name">
@@ -28,15 +28,17 @@
 									<small data-original-variation="<?php echo $device['variations']['']; ?>"><?php echo $device['variations']['']; ?></small>
 								<?php } ?>
 							</span>
-							<?php if( isset( $device['variations'] ) ){ ?>
+							<?php if( isset( $device['variations'] ) ){ $variation_index = 0; ?>
 								<ul class="variations">
 									<?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
-										<li class="variations__item variations__item<?php echo $key_variation; ?>" data-image="<?php echo $key.$key_variation; ?>" data-variation="<?php echo $key_variation; ?>">
+										<li class="variations__item variations__item<?php echo $key_variation; ?><?php if($variation_index == 0): ?> variations__item--active<?php endif; ?>" 
+										data-image="<?php echo $key.$key_variation; ?>" 
+										data-variation="<?php echo $key_variation; ?>">
 											<span class="variations__item__link" href="<?php echo $key.$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
 												<span class="variations__item__name"><?php echo $device_variation; ?></span>
 											</span>
 										</li>
-									<?php } ?>
+									<?php $variation_index++; } ?>
 								</ul>
 							<?php } ?><!-- End variations -->
 						</a>
