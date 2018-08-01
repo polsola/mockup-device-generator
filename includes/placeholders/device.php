@@ -20,5 +20,5 @@ foreach ($devices as $key => $device) {
 	} else {
 		$generator->createPlaceholder($key);
 	}
-	echo 'Generated';
+	echo 'Generated ' . $key . '<br/>';
 }

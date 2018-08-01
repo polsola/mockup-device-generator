@@ -15,7 +15,10 @@ $composition = $compositions[$_GET['composition']];
 <?php foreach($composition['layers'] as $index => $layer):
     $device = $devices[$layer['device']]; ?>
     <li class="devices__item">
-        <span class="devices__item__link" data-device-name="<?php echo $device['name']; ?>" data-screen-width="<?php echo $device['screen']['width']; ?>" data-screen-height="<?php echo $device['screen']['height']; ?>">
+        <span class="devices__item__link" 
+            data-device-name="<?php echo $device['name']; ?>" 
+            data-screen-width="<?php echo $device['screen']['width']; ?>" 
+            data-screen-height="<?php echo $device['screen']['height']; ?>">
             <span class="devices__item__link__index"><?php echo $index+1; ?></span>
             <span class="devices__item__link__placeholder">
                 <span class="devices__item__link__device" data-original-image="<?php echo $layer['device']; ?>" style="background-image: url('static/images/devices/placeholder/<?php echo $layer['device'].'.png' ?>');">
@@ -27,15 +30,20 @@ $composition = $compositions[$_GET['composition']];
                     <small data-original-variation="<?php echo $device['variations']['']; ?>"><?php echo $device['variations']['']; ?></small>
                 <?php } ?>
             </span>
-            <?php if( isset( $device['variations'] ) ){ ?>
+            <!--<span class="devices__item__size">
+                Recommended size: <strong class="screen-width"><?php echo $device['screen']['width']; ?></strong>x<strong class="screen-height"><?php echo $device['screen']['height']; ?></strong> px
+            </span>-->
+            <?php if( isset( $device['variations'] ) ){ $variation_index = 0; ?>
                 <ul class="variations">
                     <?php foreach ($device['variations'] as $key_variation => $device_variation) { ?>
-                        <li class="variations__item variations__item<?php echo $key_variation; ?>" data-image="<?php echo $layer['device'].$key_variation; ?>" data-variation="<?php echo $key_variation; ?>">
+                        <li class="variations__item variations__item<?php echo $key_variation; ?><?php if($variation_index == 0): ?> variations__item--active<?php endif; ?>" 
+                            data-image="<?php echo $layer['device'].$key_variation; ?>" 
+                            data-variation="<?php echo $key_variation; ?>">
                             <span class="variations__item__link" href="<?php echo $layer['device'].$key_variation; ?>" data-device-name="<?php echo $device['name']; ?> <?php echo $device_variation; ?>">
                                 <span class="variations__item__name"><?php echo $device_variation; ?></span>
                             </span>
                         </li>
-                    <?php } ?>
+                    <?php $variation_index++; } ?>
                 </ul>
             <?php } ?><!-- End variations -->
         </span>

@@ -60,23 +60,11 @@ class CompositionGenerator {
 			// Add new device on top of current comp
 			$comp->addLayerOnTop($device, $layer['pos']['x'], $layer['pos']['y'], $layer['from']);
 		}
-		/* TODO: Create new function in FileManager to resize */
-		// Resize image
-		$thumbWidth = 200; // px
-		$thumbHeight = 200;
-		$conserveProportion = true;
-		$positionX = 0; // px
-		$positionY = 0; // px
-		$position = 'MM';
 		
-		$comp->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
-
-		/* TODO: Move this to filemanager also */
-		// Save image
-		$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
-		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
-
-		$comp->save($this->placeholderRoute, $filename, false, $backgroundColor, $imageQuality);
+		// Resize and save
+		$fileManager = new FileManager();
+		$comp = $fileManager->resize($comp, 200);
+		$fileManager->save($comp, $filename, $this->placeholderRoute);
 
 	}
 
@@ -87,7 +75,7 @@ class CompositionGenerator {
 	 * @param array $screens Array of screens uploaded by user to use in composition
 	 * @param string $composition Identifier of composition to get atts
 	 */
-	public function createComposition($screens, $composition) {
+	public function createComposition($screens, $composition, $compositionOptions) {
 
 		// Get composition atts
 		$compAtts = $this->getCompositionAtts( $composition );
@@ -95,14 +83,24 @@ class CompositionGenerator {
 		// Container image
 		$comp = ImageWorkshop::initVirginLayer($compAtts['information']['width'], $compAtts['information']['height']);
 
+		// Composition options
+		$compositionOptions = explode(',', $compositionOptions);
+
 		// Device generator
 		$generator = new Generator();
 
 		// Add a layers for each device in the composition
 		foreach ($compAtts['layers'] as $key => $layer) {
+
+			// Get device to use, check if we have compositionOptions
+			if( isset($compositionOptions[$key]) ) {
+				$device = $compositionOptions[$key];
+			} else {
+				$device = $layer['device'];
+			}
 			
 			// Create device using $generator
-			$device = $generator->createDevice( $screens[$key], $layer['device'] );
+			$device = $generator->createDevice( $screens[$key], $device );
 
 			// Resize if needed
 			if( isset($layer['resize']) ) {
@@ -116,10 +114,10 @@ class CompositionGenerator {
 		return $comp;
 	}
 
-	public function save( $screens, $composition = '2iphones8') {
+	public function save( $screens, $composition = '2iphones8', $compositionOptions = '') {
 
 		$generator = new CompositionGenerator();
-		$result = $generator->createComposition( $screens , $composition );
+		$result = $generator->createComposition( $screens , $composition, $compositionOptions );
 	
 		// File Manager
 		$fileManager = new FileManager();

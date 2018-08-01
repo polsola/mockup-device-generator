@@ -53,6 +53,9 @@ $(function () {
 		var $device = $deviceLink.find('.devices__item__link__device');
 		var $deviceLinkSmall = $deviceLink.find('small');
 
+		$('.variations__item', $deviceLink).removeClass('variations__item--active');
+		$(this).addClass('variations__item--active');
+
 		$deviceLink.attr('href', image);
 		$device.data('original-image', image);
 		$deviceLinkSmall.data('original-variation', $(this).text());

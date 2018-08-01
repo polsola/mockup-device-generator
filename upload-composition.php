@@ -19,7 +19,7 @@ foreach( $_FILES['file']['name'] as $key => $file ) {
         // File is valid, and was successfully uploaded
         $uploadedFiles[] = basename(  $file  );
         if ($file === end($_FILES['file']['name'])) {
-            echo $compositionGenerator->save( $uploadedFiles, $_POST['composition'] );
+            echo $compositionGenerator->save( $uploadedFiles, $_POST['composition'], $_POST['compositionOptions'] );
         }
     } else {
     // Some error happened, check permissions

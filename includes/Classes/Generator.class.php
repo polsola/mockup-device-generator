@@ -78,16 +78,16 @@ class Generator {
 		}
 
 		$device_atts = $this->getDeviceAtts( $device );
-		$screen = ImageWorkshop::initFromPath(__DIR__ . '/../../assets/images/device_placeholder.png');
+		$screen = ImageWorkshop::initFromPath(__DIR__ . '/../../static/images/device_placeholder.png');
 
 		$screen->resizeInPixel( $device_atts['screen']['width'], $device_atts['screen']['height'], false);
 
 		$placeholder = $this->createDevice($screen, $device, 'portrait', true);
 
-		$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
-		$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
-
-		$placeholder->save($this->placeHolderRoute, $filename, false, $backgroundColor, $imageQuality);
+		// Resize and save
+		$fileManager = new FileManager();
+		$placeholder = $fileManager->resize($placeholder, 200);
+		$fileManager->save($placeholder, $filename, $this->placeHolderRoute);
 	}
 
 	private function getDeviceAtts( $device ) {

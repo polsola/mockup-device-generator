@@ -22,4 +22,7 @@ $(function () {
         data.append("device", device);
         data.append("orientation", orientation);
     });
+
+    // Trigger click on first item on load
+    $('.app__nav__section:first-child .devices .devices__item:first-child .devices__item__link').trigger('click');
 });

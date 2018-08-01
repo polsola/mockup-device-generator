@@ -2,17 +2,36 @@
 namespace Classes;
 
 class FileManager {
-    
+
+    /**
+     * Resize image
+     */
+    public function resize($image, $width) {
+        // Resize image
+		$thumbWidth = $width; // px
+		$thumbHeight = $width;
+		$conserveProportion = true;
+		$positionX = 0; // px
+		$positionY = 0; // px
+		$position = 'MM';
+		
+        $image->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
+        
+        return $image;
+    }
+
     /**
      * Save image
      */
-    public function save($image, $filename) {
-        $dirPath = "saved";
+    public function save($image, $filename, $dirPath = 'saved') {
+        //$dirPath = "saved";
         $createFolders = true; //will create the folder if not exist
         $backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
         $imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
         $image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
+
+        return $image;
     }
 
     /**

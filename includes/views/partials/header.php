@@ -32,7 +32,9 @@
 		</aside>
 		<header class="app__header">
 			<span class="app__header__title device_selected">Device image generator</span>
-			<div class="app__header__size">Recommended size: <strong class="screen-width"></strong>x<strong class="screen-height"></strong> px</div>
+			<?php if( $page == 'index'): ?>
+				<div class="app__header__size">Recommended size: <strong class="screen-width"></strong>x<strong class="screen-height"></strong> px</div>
+			<?php endif; ?>
 			<!-- Place this tag where you want the button to render. -->
 			<a class="github-button" href="https://github.com/polsola" data-size="large" aria-label="Follow @polsola on GitHub">Follow @polsola</a>
 			<!-- Place this tag where you want the button to render. -->

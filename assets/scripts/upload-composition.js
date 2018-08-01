@@ -33,7 +33,18 @@ $(function () {
 
     myDropzone.on("sending", function (file, xhr, data) {
         var composition = $('#device-pick').val();
+        var compositionOptions = [];
+        $('#composition-options .composition-devices .devices__item__link').each(function (i, item) {
+            if ($('.variations__item--active', $(this)).length > 0) {
+                var currentVariation = $('.variations__item--active .variations__item__link', $(this)).attr('href');
+                compositionOptions.push(currentVariation);
+            } else {
+                compositionOptions.push('');
+            }
+        });
+        console.log(compositionOptions);
         data.append("composition", composition);
+        data.append("compositionOptions", compositionOptions);
     });
 
     myDropzone.on("successmultiple", function (file, response) {
