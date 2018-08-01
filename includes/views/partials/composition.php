@@ -11,6 +11,7 @@ $compositions = Template::getCompositions();
 $devices = Template::getDevices();
 $composition = $compositions[$_GET['composition']];
 ?>
+<h3>Drop images in order</h3>
 <ul class="composition-devices">
 <?php foreach($composition['layers'] as $index => $layer):
     $device = $devices[$layer['device']]; ?>

@@ -13,6 +13,7 @@ class CompositionGenerator {
 		$this->originalRoute = DOCUMENT_ROOT . '/static/images/compositions/original/';
 		$this->placeholderRoute = DOCUMENT_ROOT . '/static/images/compositions/placeholder/';
 		$this->devicePlaceholderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/large/';
+		$this->config = include(DOCUMENT_ROOT . '/config.php');
 	}
 
 	/**
@@ -150,7 +151,9 @@ class CompositionGenerator {
 		$fileManager = new FileManager();
 		
 		// Save file
-		$fileManager->save($result, $composition . '.png');
+		if( $this->config['saveImages'] ):
+			$fileManager->save($result, $composition . '.png');
+		endif;
 		
 		// Capture png image
 		$base64image = $fileManager->base64Image($result);

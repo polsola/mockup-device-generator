@@ -2,3 +2,4 @@
 /saved/*
 /node_modules/
 /vendor/
+/config.php

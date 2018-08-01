@@ -11,6 +11,7 @@ class Generator {
 		$this->devices = Template::getDevices();
 		$this->originalRoute = DOCUMENT_ROOT . '/static/images/devices/original/';
 		$this->placeHolderRoute = DOCUMENT_ROOT . '/static/images/devices/placeholder/';
+		$this->config = include(DOCUMENT_ROOT . '/config.php');
 	}
 
 	// Function to create device
@@ -109,7 +110,9 @@ class Generator {
 		$fileManager = new FileManager();
 		
 		// Save file
-		$fileManager->save($result, $screen);
+		if( $this->config['saveImages'] ):
+			$fileManager->save($result, $screen);
+		endif;
 	  
 		// Capture png image
 		$base64image = $fileManager->base64Image($result);

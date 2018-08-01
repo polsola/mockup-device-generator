@@ -24,7 +24,13 @@
 
 .app__brand {
 	grid-area: brand;
-	background: $primary-color url('../images/brand.png') no-repeat center/cover;
+	background: $primary-color url('../images/brand.jpg') no-repeat center/cover;
 	text-indent: -9999px;
 	margin: 0;
+	//padding: rem;
+	&__link {
+		display: block;
+		height: 100%;
+		background: url('../images/polsola.svg') no-repeat center/contain;
+	}
 }

@@ -7,40 +7,19 @@ use PHPImageWorkshop\ImageWorkshop;
 
 use Classes\Template as Template;
 
-$deviceCategories = Template::getDevices(true);
-$compositionCategories = Template::getCompositions(true);
 
-//require_once('functions.php');
-
-function get_screens() {
-	$directory = 'screens/';
-	$scanned_directory = array_diff(scandir($directory), array('..', '.', '.DS_Store'));
-
-	return $scanned_directory;
+if (!file_exists(DOCUMENT_ROOT . '/config.php')) {
+	echo 'No <strong>config.php</strong> file detected, create one';
+	return;
 }
 
-
-
-
-// Clear saved folder
-/*
-$files = glob('saved/*'); // get all file names
-foreach($files as $file){ // iterate files
-  if(is_file($file))
-    unlink($file); // delete file
-}
-
-// Clear saved folder
-$files = glob('screens/*'); // get all file names
-foreach($files as $file){ // iterate files
-  if(is_file($file))
-    unlink($file); // delete file
-}*/
 
 if( isset($_GET['page']) && $_GET['page'] == 'compose' ) {
 	$page = 'compose';
+	$compositionCategories = Template::getCompositions(true);
 	require_once('includes/views/pages/compose.php');
 } else {
 	$page = 'index';
+	$deviceCategories = Template::getDevices(true);
 	require_once('includes/views/pages/index.php');
 }
