@@ -1,0 +1,22 @@
+.button {
+    padding: 1rem;
+    background-image: linear-gradient(45deg, $primary-color, #1ed4d4);
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    &--large {
+        font-size: 1.1rem;
+    }
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.toogle-app-nav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}

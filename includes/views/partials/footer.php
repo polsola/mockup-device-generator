@@ -1,5 +1,5 @@
 	</main>
-	
+	<button class="button button--expanded button--large toogle-app-nav">Change device</button>
 	<?php if( $config['gacode'] ): ?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $config['gacode']; ?>"></script>

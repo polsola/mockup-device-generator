@@ -6,8 +6,12 @@
 .page-nav {
   list-style: none;
   margin: 0;
-  padding: .5rem 0;
-
+  display: flex;
+  justify-content: flex-end;
+  @include breakpoint(medium) {
+    flex-direction: column;
+    padding: .5rem 0;
+  }
   &__item {
     padding: .5rem 1rem;
     &__link {

@@ -1,6 +1,9 @@
 .app__main {
 	grid-area: main;
-	padding: 30px;
+	padding: 15px;
+	@include breakpoint(medium) {
+		padding: 30px;
+	}
 }
 
 .composition-devices {

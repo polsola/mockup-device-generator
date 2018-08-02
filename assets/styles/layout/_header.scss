@@ -2,19 +2,33 @@
 	grid-area: header;
 	background-color: #fff;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	margin: 0;
 	padding: 0 30px;
 	margin: 0;
 	border-bottom: 1px solid $light-gray;
 	color: lighten($body-color, 10%);
+	@include breakpoint(medium) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
 	&__title {
-		flex-grow: 1;
+		
 		font-size: 18px;
 		font-weight: 600;
+		@include breakpoint(medium) {
+			flex-grow: 1;
+		}
 		small {
 			margin-left: 10px;
+		}
+	}
+	&__buttons {
+		display: none;
+		@include breakpoint(large) {
+			display: block;
 		}
 	}
 	.github-button, iframe {
@@ -27,7 +41,7 @@
 	background: $primary-color url('../images/brand.jpg') no-repeat center/cover;
 	text-indent: -9999px;
 	margin: 0;
-	//padding: rem;
+	overflow: hidden;
 	&__link {
 		display: block;
 		height: 100%;

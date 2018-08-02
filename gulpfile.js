@@ -46,7 +46,7 @@ gulp.task('scripts', function (done) {
 // Static Server + watching scss/html files
 gulp.task("serve", function () {
   browserSync.init({
-    proxy: "http://php-device-image-generator.localhost/"
+    proxy: "http://mockup-device-generator.localhost"
   });
 
   gulp.watch(paths.sass, gulp.series("styles"));

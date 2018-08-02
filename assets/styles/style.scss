@@ -1,21 +1,6 @@
 @import 'settings';
+@import 'mixins';
 
-body {
-	background-color: $bg-color;
-	color: $body-color;
-	font: 14px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-h1, h2, h3 {
-	font-weight: 400;
-}
 
 .generated {
 	display: flex;
@@ -27,17 +12,6 @@ h1, h2, h3 {
 		display: flex;
 		flex-grow: 1;
 		flex-shrink: 0;
-		@media screen and (min-width: $screen-small) {
-			//width: 33.33%;
-		}
-
-		@media screen and (min-width: $screen-medium) {
-			//width: 20%;
-		}
-
-		@media screen and (min-width: $screen-large) {
-			//width: 20%;
-		}
 	}
 	img {
 		flex-grow: 0;
@@ -54,9 +28,12 @@ h1, h2, h3 {
 	border-color:#0000ff;
 }
 @import "layout/grid",
-				"layout/header",
-				"layout/nav",
-				"layout/main",
-				"layout/aside";
+		"layout/header",
+		"layout/nav",
+		"layout/main",
+		"layout/aside";
+
+@import "module/button",
+		"module/type";
 
 @import "vendor/dropzone";

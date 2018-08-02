@@ -1,10 +1,26 @@
 .app {
-	display: grid;
-	grid-template-columns: 100px 400px auto;
-  grid-template-rows: 80px auto;
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-rows: 80px 60px auto;
   grid-template-areas:
-    "brand nav-header header"
-    "aside nav main";
+    "brand aside"
+    "header header"
+    "main main";
+  @include breakpoint(medium) {
+    grid-template-columns: 100px 300px auto;
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+      "brand nav-header header"
+      "aside nav main";
+  }
+  @include breakpoint(large) {
+    grid-template-columns: 100px 400px auto;
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+      "brand nav-header header"
+      "aside nav main";
+  }
+	
 }
 
 html, body, .app {

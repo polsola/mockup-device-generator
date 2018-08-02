@@ -1,0 +1,16 @@
+body {
+	background-color: $bg-color;
+	color: $body-color;
+	font: 14px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3 {
+	font-weight: 400;
+}

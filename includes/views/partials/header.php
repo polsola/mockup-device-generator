@@ -56,8 +56,11 @@
 			<?php if( $page == 'index'): ?>
 				<div class="app__header__size">Recommended size: <strong class="screen-width"></strong>x<strong class="screen-height"></strong> px</div>
 			<?php endif; ?>
-			<!-- Place this tag where you want the button to render. -->
-			<a class="github-button" href="https://github.com/polsola" data-size="large" aria-label="Follow @polsola on GitHub">Follow @polsola</a>
-			<!-- Place this tag where you want the button to render. -->
-			<a class="github-button" href="https://github.com/polsola/mockup-device-generator" data-icon="octicon-star" data-size="large" aria-label="Star polsola/mockup-device-generator on GitHub">Star</a>
+			
+			<div class="app__header__buttons">
+				<!-- Place this tag where you want the button to render. -->
+				<a class="github-button" href="https://github.com/polsola" data-size="large" aria-label="Follow @polsola on GitHub">Follow @polsola</a>
+				<!-- Place this tag where you want the button to render. -->
+				<a class="github-button" href="https://github.com/polsola/mockup-device-generator" data-icon="octicon-star" data-size="large" aria-label="Star polsola/mockup-device-generator on GitHub">Star</a>
+			</div>
 		</header>
