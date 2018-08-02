@@ -24,6 +24,11 @@
 	<meta name="twitter:description" content="<?php echo $description; ?>" />
 	<meta name="twitter:title" content="<?php echo $title; ?>" />
 	<meta name="twitter:image" content="<?php echo $image; ?>" />
+	<!-- Apple Devices Icons -->
+	<link rel="apple-touch-icon-precomposed" href="http://mockups.polsola.com/static/images/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="Mockups">
+	<!-- END Apple Devices Icons -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="static/styles/style.css" />
 	<script type="text/javascript" src="static/scripts/jquery-2.1.4.min.js"></script>
