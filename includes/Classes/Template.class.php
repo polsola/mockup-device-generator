@@ -14,21 +14,37 @@ class Template {
 		$devices = $phones = $tablets = $computers = $watches = array();
 
 		$phones['iphonex'] = array(
-							'name' 				=> 'iPhone X',
-							'image' 			=> 'iphonex.png',
-							'screen' 			=> array('x' => 47, 'y' => 60, 'width' => 375, 'height' => 812 ),
-							'variations' 	=> array('' => 'Space Gray', '--silver' => 'Silver'),
-							'back' 				=> true,
-							'landscape'		=> true
-						);
+			'name' 				=> 'iPhone X',
+			'image' 			=> 'iphonex.png',
+			'screen' 			=> array('x' => 47, 'y' => 60, 'width' => 375, 'height' => 812 ),
+			'variations' 	=> array('' => 'Space Gray', '--silver' => 'Silver'),
+			'back' 				=> true,
+			'landscape'		=> true
+		);
 
 		$phones['iphone8'] = array(
-							'name' 				=> 'iPhone 8',
-							'image' 			=> 'iphone8.png',
-							'screen' 			=> array('x' => 50, 'y' => 140, 'width' => 375, 'height' => 667 ),
-							'variations' 	=> $ios_product_variations,
-							'landscape'		=> true
-						);
+			'name' 				=> 'iPhone 8',
+			'image' 			=> 'iphone8.png',
+			'screen' 			=> array('x' => 50, 'y' => 140, 'width' => 375, 'height' => 667 ),
+			'variations' 	=> $ios_product_variations,
+			'landscape'		=> true
+		);
+
+		$phones['iphone8-plus'] = array(
+			'name' 				=> 'iPhone 8 Plus',
+			'image' 			=> 'iphone8-plus.png',
+			'screen' 			=> array('x' => 67, 'y' => 133, 'width' => 414, 'height' => 736 ),
+			'variations' 	=> $ios_product_variations,
+			'landscape'		=> true
+		);
+
+		$phones['iphone-se'] = array(
+			'name' 				=> 'iPhone SE',
+			'image' 			=> 'iphone-se.png',
+			'screen' 			=> array('x' => 50, 'y' => 140, 'width' => 320, 'height' => 568 ),
+			'variations' 	=> $ios_product_variations,
+			'landscape'		=> true
+		);
 
 		$tablets['ipad-air-2'] = array(
 							'name' 				=> 'iPad Air 2',
@@ -59,29 +75,51 @@ class Template {
 						);
 
 		$phones['samsung-galaxy-s8'] = array(
-							'name' 				=> 'Samsung Galaxy S8',
-							'image' 			=> 'samsung-galaxy-s8.png',
-							'screen' 			=> array('x' => 50, 'y' => 160, 'width' => 720, 'height' => 1480 ),
-							'variations'	=> $samsung_product_variations,
-							'back' 				=> true,
-							'landscape'		=> true
-						);
+			'name' 				=> 'Samsung Galaxy S8',
+			'image' 			=> 'samsung-galaxy-s8.png',
+			'screen' 			=> array('x' => 50, 'y' => 160, 'width' => 720, 'height' => 1480 ),
+			'variations'	=> $samsung_product_variations,
+			'back' 				=> true,
+			'landscape'		=> true
+		);
+
+		$phones['samsung-galaxy-s7'] = array(
+			'name' 			=> 'Samsung Galaxy S7',
+			'image' 		=> 'samsung-galaxy-s7.png',
+			'screen' 		=> array('x' => 70, 'y' => 200, 'width' => 720, 'height' => 1280 ),
+			'variations'	=> $samsung_product_variations,
+			'landscape'		=> true
+		);
 
 		$phones['google-pixel-2'] = array(
-							'name' 				=> 'Google Pixel 2',
-							'image' 			=> 'google-pixel-2.png',
-							'screen' 			=> array('x' => 50, 'y' => 170, 'width' => 540, 'height' => 960 ),
-							'variations'	=> $google_product_variations,
-							'back' 				=> true,
-							'landscape'		=> true
-						);
+			'name' 				=> 'Google Pixel 2',
+			'image' 			=> 'google-pixel-2.png',
+			'screen' 			=> array('x' => 50, 'y' => 170, 'width' => 540, 'height' => 960 ),
+			'variations'		=> $google_product_variations,
+			'back' 				=> true,
+			'landscape'			=> true
+		);
+
+		$phones['huawei-p8'] = array(
+			'name' 				=> 'Huawei P8',
+			'image' 			=> 'huawei-p8.png',
+			'screen' 			=> array('x' => 50, 'y' => 160, 'width' => 540, 'height' => 960 ),
+			'variations'		=> array('' => 'Black', '--white' => 'White'),
+			'landscape'			=> true
+		);
 
 		$tablets['nexus9'] = array(
-							'name' 				=> 'Nexus 9',
-							'image' 			=> 'nexus9.png',
-							'screen' 			=> array('x' => 90, 'y' => 150, 'width' => 768, 'height' => 1024 ),
-							'landscape'		=> true
-						);
+			'name' 				=> 'Nexus 9',
+			'image' 			=> 'nexus9.png',
+			'screen' 			=> array('x' => 90, 'y' => 150, 'width' => 768, 'height' => 1024 ),
+			'landscape'		=> true
+		);
+
+		$tablets['microsoft-surface-pro-4'] = array(
+			'name' 				=> 'Microsoft Surface Pro 4',
+			'image' 			=> 'microsoft-surface-pro-4.png',
+			'screen' 			=> array('x' => 120, 'y' => 100, 'width' => 1368, 'height' => 912 )
+		);
 
 		$watches['apple-watch-42'] = array(
 							'name' 				=> 'Apple Watch 2 42mm',
