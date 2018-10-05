@@ -33,6 +33,8 @@
 	<link rel="stylesheet" href="static/styles/style.css" />
 	<script type="text/javascript" src="static/scripts/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="static/scripts/dropzone.min.js"></script>
+	<script type="text/javascript" src="node_modules/file-saver/FileSaver.min.js"></script>
+	<script type="text/javascript" src="node_modules/jszip/dist/jszip.min.js"></script>
 	<script type="text/javascript" src="static/scripts/app.js"></script>
 </head>
 <body>

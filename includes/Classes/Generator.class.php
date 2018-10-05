@@ -19,6 +19,9 @@ class Generator {
 
 		$device_atts = $this->getDeviceAtts( $device );
 
+		//var_dump($device_atts);
+		//die();
+
 		$device_image = $device.'.png';
 
 		list($width, $height) = getimagesize( $this->originalRoute . $device_image );
@@ -96,9 +99,13 @@ class Generator {
 
 		$device_array = explode('--', $device);
 
-		$device_atts = $this->devices[ $device_array[0] ];
-
-		return $device_atts;
+		if( isset($this->devices[ $device_array[0] ]) ) {
+			$device_atts = $this->devices[ $device_array[0] ];
+			return $device_atts;
+		} else {
+			return 'Device not found';
+		}
+		
 	}
 
 	public function save( $screen, $device = 'iphone8', $orientation = 'portrait' ) {

@@ -32,7 +32,7 @@ $(function () {
     });
 
     myDropzone.on("sending", function (file, xhr, data) {
-        var composition = $('#device-pick').val();
+        var composition = $('#composition-pick').val();
         var compositionOptions = [];
         $('#composition-options .composition-devices .devices__item__link').each(function (i, item) {
             if ($('.variations__item--active', $(this)).length > 0) {
@@ -42,7 +42,7 @@ $(function () {
                 compositionOptions.push('');
             }
         });
-        console.log(compositionOptions);
+        console.log(composition, compositionOptions);
         data.append("composition", composition);
         data.append("compositionOptions", compositionOptions);
     });

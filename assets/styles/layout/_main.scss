@@ -1,8 +1,19 @@
 .app__main {
 	grid-area: main;
 	padding: 15px;
+	overflow: auto;
 	@include breakpoint(medium) {
 		padding: 30px;
+	}
+	&__header {
+		@include breakpoint(medium) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		#download {
+			display: none;
+		}
 	}
 }
 

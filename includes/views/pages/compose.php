@@ -35,6 +35,7 @@
 				</section>
 			<?php } ?><!-- End categories -->
 			<input id="device-pick" name="device-pick" type="hidden" />
+			<input id="composition-pick" name="composition-pick" type="hidden" />
 			<input id="composition-devices-count" name="composition-devices-count" type="hidden" />
 		</aside>
 	</div>

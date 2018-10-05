@@ -3,6 +3,7 @@ var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
 var plumber = require('gulp-plumber');
 var cleanCSS = require('gulp-clean-css');
+var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var browserSync = require("browser-sync").create();
 
@@ -37,6 +38,9 @@ gulp.task('scripts', function (done) {
   gulp
     .src(paths.js)
     .pipe(plumber())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(uglify())
     .pipe(gulp.dest(paths.dirs.static + "scripts"))
     .pipe(browserSync.stream());

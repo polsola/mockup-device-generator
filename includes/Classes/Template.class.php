@@ -198,6 +198,28 @@ class Template {
 				)
 			)
 		);
+		$compositions3['3iphonesx'] = array(
+			'name' => '3 iPhones X',
+			'information' => array(
+				'width' 	=> 920,
+				'height'	=> 947
+			),
+			'layers' => array(
+				0 => array(
+					'device' 	=> 'iphonex',
+					'from'		=> 'LM'
+				),
+				1 => array(
+					'device' 	=> 'iphonex',
+					'from'		=> 'MM'
+				),
+				2 => array(
+					'device' 	=> 'iphonex',
+					'from'		=> 'RM'
+				)
+				
+			)
+		);
 		$compositions3['3iphonesxfront'] = array(
 			'name' => '3 iPhones X Front',
 			'information' => array(
@@ -244,6 +266,30 @@ class Template {
 				2 => array(
 					'device' 	=> 'iphone8',
 					'from'		=> 'RT',
+					'pos'		=> array('x' => 0, 'y' => 0)
+				)
+			)
+		);
+		$compositions3['3iphones8front'] = array(
+			'name' => '3 iPhones 8 Front',
+			'information' => array(
+				'width' 	=> 920,
+				'height'	=> 947
+			),
+			'layers' => array(
+				0 => array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'LM',
+					'resize'	=> 90
+				),
+				1 => array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'RM',
+					'resize'	=> 90
+				),
+				2 => array(
+					'device' 	=> 'iphone8',
+					'from'		=> 'MT',
 					'pos'		=> array('x' => 0, 'y' => 0)
 				)
 			)

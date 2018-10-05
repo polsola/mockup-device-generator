@@ -49,6 +49,7 @@
 				</section>
 			<?php } ?><!-- End category -->
 			<input id="device-pick" name="device-pick" type="hidden" />
+			<input id="composition-pick" name="composition-pick" type="hidden" />
 		</aside>
 	</div>
 	<section class="app__main">
@@ -57,7 +58,13 @@
 				<input name="file" type="file" multiple />
 			</div>
 		</form>
-		<h2><span class="generated_count">0</span> images generated</h2>
+		<div class="app__main__header">
+			<h2><span class="generated_count">0</span> images generated</h2>
+			<div class="app__main__header__download">
+				<button class="button" id="download">Download mockups</button>
+			</div>
+		</div>
+		
 		<div class="generated">
 		</div>
 	</section>

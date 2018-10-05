@@ -10,9 +10,6 @@
     &--large {
         font-size: 1.1rem;
     }
-    @include breakpoint(medium) {
-        display: none;
-    }
 }
 
 .toogle-app-nav {
@@ -20,4 +17,7 @@
     bottom: 0;
     right: 0;
     width: 100%;
+    @include breakpoint(medium) {
+        display: none;
+    }
 }
