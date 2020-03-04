@@ -1,32 +1,36 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "170c880757c2d1db6434981c269aef81",
     "packages": [
         {
             "name": "sybio/image-workshop",
-            "version": "2.0.9",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sybio/ImageWorkshop.git",
-                "reference": "b7f678b51b21c96049bd0a535382520a596d6526"
+                "reference": "1237b7302f201be70e29a58fb347696eb2212d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sybio/ImageWorkshop/zipball/b7f678b51b21c96049bd0a535382520a596d6526",
-                "reference": "b7f678b51b21c96049bd0a535382520a596d6526",
+                "url": "https://api.github.com/repos/Sybio/ImageWorkshop/zipball/1237b7302f201be70e29a58fb347696eb2212d1e",
+                "reference": "1237b7302f201be70e29a58fb347696eb2212d1e",
                 "shasum": ""
             },
             "require": {
-                "ext-exif": "*",
+                "ext-fileinfo": "*",
                 "ext-gd": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
                 "phpunit/phpunit": "~4.5"
+            },
+            "suggest": {
+                "ext-exif": "Allows to read and keep images EXIF data"
             },
             "type": "library",
             "autoload": {
@@ -62,7 +66,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-07-05T09:09:12+00:00"
+            "time": "2019-10-20T11:57:00+00:00"
         }
     ],
     "packages-dev": [],

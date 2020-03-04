@@ -197,6 +197,15 @@
 		&--blue {
 			background-image: linear-gradient(45deg, lighten($primary-color, 15%), $primary-color);
 		}
+		&--purple {
+			background-image: linear-gradient(45deg, #CDC7DE, darken(#CDC7DE, 15%));
+		}
+		&--green {
+			background-image: linear-gradient(45deg, #CBE9D9, darken(#CBE9D9, 15%));
+		}
+		&--yellow {
+			background-image: linear-gradient(45deg, #FFEDAB, 15%, darken(#FFEDAB, 15%));
+		}
 		&__link {
 			display: block;
 			text-decoration: none;

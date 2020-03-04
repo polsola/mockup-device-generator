@@ -13,6 +13,21 @@ class Template {
 
 		$devices = $phones = $tablets = $computers = $watches = array();
 
+		$phones['iphone11'] = array(
+			'name' 				=> 'iPhone 11',
+			'image' 			=> 'iphone11.png',
+			'screen' 			=> array('x' => 50, 'y' => 50, 'width' => 414, 'height' => 896 ),
+			'variations' 		=> array(
+				'' => 'Space Gray', 
+				'--green' => 'Green',
+				'--purple' => 'Purple',
+				'--yellow' => 'Yellow',
+				'--white' => 'White'
+			),
+			'back' 				=> true,
+			'landscape'			=> true
+		);
+
 		$phones['iphonex'] = array(
 			'name' 				=> 'iPhone X',
 			'image' 			=> 'iphonex.png',
